@@ -2,6 +2,7 @@ import HomepageRouter from './Modules/Homepage/Router'
 import DashboardRouter from './Modules/Dashboard/Router'
 import OrdersRouter from './Modules/Orders/Router'
 import RidersRouter from './Modules/Riders/Router'
+import AuthenticationRouter from './Modules/Authentication/Router'
 
 
 
@@ -10,6 +11,7 @@ export default [
     ...HomepageRouter,
     ...RidersRouter,
     ...OrdersRouter,
+    ...AuthenticationRouter,
     // 404 PAGE
     {
         path: '/:catchAll(.*)',

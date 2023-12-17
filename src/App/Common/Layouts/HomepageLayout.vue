@@ -1,19 +1,16 @@
 <script setup lang="ts">
-// import NavBar from "../Components/Navbar.vue";
 import Header from "../Components/Header.vue"
-
+import Footer from "../Components/Footer.vue"
 
 </script>
 
 <template>
-    <div class="">
-        <!-- <NavBar></NavBar> -->
+    <div class="overflow-hidden">
         <Header></Header>
 
         <slot></slot>
 
-        <!-- <Footer></Footer> -->
-
+        <Footer></Footer>
     </div>
 </template>
 
