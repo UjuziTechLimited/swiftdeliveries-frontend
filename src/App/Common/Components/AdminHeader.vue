@@ -4,6 +4,19 @@ import { themeChange } from 'theme-change';
 import { onMounted } from "vue";
 import { RouterLink } from 'vue-router';
 
+import { useAuthStore } from '@/stores/AuthStore';
+
+const AuthStore = useAuthStore();
+
+const logout = async () => {
+    try {
+        await AuthStore.logout();
+        // You can handle successful login redirection here
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 onMounted(() => {
     themeChange(false);
 });
@@ -19,22 +32,39 @@ onMounted(() => {
         <div class="hidden navbar-center lg:flex">
             <ul class="px-1 menu menu-horizontal">
                 <li>
-                    <RouterLink :to="{ name: 'Dashboard' }" class="text-xl font-bold">Platform </RouterLink>
+                    <RouterLink :to="{ name: 'Dashboard' }" class="text-xl font-bold">Dashboard </RouterLink>
+                </li>
+                <li>
+                    <RouterLink :to="{ name: 'Orders' }" class="text-xl font-bold">Orders </RouterLink>
+                </li>
+                <li>
+                    <RouterLink :to="{ name: 'Riders' }" class="text-xl font-bold">Riders </RouterLink>
                 </li>
                 <li>
                     <details>
-                        <summary class="text-xl font-bold">About</summary>
+                        <summary class="text-xl font-bold">Other Features</summary>
                         <ul class="p-2">
-                            <li><a href="#features" class="text-xl font-bold">Features</a></li>
-                            <li><a href="#testimonials" class="text-xl font-bold">Testimonials</a></li>
+                            <li><a href="#" class="text-xl font-bold">Feature 1</a></li>
+                            <li><a href="#" class="text-xl font-bold">Feature 2</a></li>
                         </ul>
                     </details>
                 </li>
-                <li><a href="#contact" class="text-xl font-bold">Contact Us</a></li>
             </ul>
         </div>
 
         <div class="navbar-end">
+            <!-- logout button -->
+            <form @submit.prevent="logout">
+                <button class="btn btn-ghost btn-sm rounded-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 19l9-7-9-7m0 14V5m-7 14h14M5 12h13" />
+                    </svg>
+                    Logout
+                </button>
+            </form>
+
+
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
@@ -44,17 +74,27 @@ onMounted(() => {
                 </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box ">
                     <li>
-                        <RouterLink :to="{ name: 'Dashboard' }" class="text-xl font-bold">Platform </RouterLink>
+                        <RouterLink :to="{ name: 'Dashboard' }" class="text-xl font-bold">Dashboard </RouterLink>
                     </li>
                     <li>
-                        <a class="text-xl font-bold">About</a>
-                        <ul class="p-2">
-                            <li><a href="#features" class="text-xl font-bold">Features</a></li>
-                            <li><a href="#testimonials" class="text-xl font-bold">Testimonials</a></li>
-                        </ul>
+                        <RouterLink :to="{ name: 'Orders' }" class="text-xl font-bold">Orders </RouterLink>
                     </li>
-                    <li><a href="#contact" class="text-xl font-bold">Contact Us</a></li>
+                    <li>
+                        <RouterLink :to="{ name: 'Riders' }" class="text-xl font-bold">Riders </RouterLink>
+                    </li>
+                    <li>
+                        <details>
+                            <summary class="text-xl font-bold">Other Features</summary>
+                            <ul class="p-2">
+                                <li><a href="#" class="text-xl font-bold">Feature 1</a></li>
+                                <li><a href="#" class="text-xl font-bold">Feature 2</a></li>
+                            </ul>
+                        </details>
+                    </li>
                 </ul>
+            </div>
+            <div>
+
             </div>
             <label class="swap swap-rotate">
                 <!-- this hidden checkbox controls the state -->

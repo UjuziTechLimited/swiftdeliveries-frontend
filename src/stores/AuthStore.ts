@@ -18,6 +18,7 @@ export const useAuthStore = defineStore({
     },
 
     actions: {
+        // login user
         async login(email: string, password: string) {
             try {
                 let response = await auth.login(email, password);
@@ -28,5 +29,17 @@ export const useAuthStore = defineStore({
                 console.log(error);
             }
         },
+        // logout user
+        async logout() {
+            try {
+                await auth.logout();
+                this.token = {};
+                this.isAuthenticated = false;
+                router.push("/login");
+            } catch (error) {
+                console.log(error);
+            }
+        },
+
     },
 });

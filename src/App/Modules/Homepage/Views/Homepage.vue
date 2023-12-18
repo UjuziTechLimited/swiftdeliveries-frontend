@@ -1,7 +1,7 @@
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-import HomepageLayout from '@/App/Common/Layouts/HomepageLayout.vue';
+import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
 import HeroSection from '../Components/HeroSection.vue';
 import FeaturesSection from '../Components/FeaturesSection.vue';
 import TestimonialsSection from '../Components/TestimonialsSection.vue';
@@ -12,11 +12,11 @@ import ContactSection from '../Components/ContactSection.vue';
 
 <template>
     <div>
-        <HomepageLayout>
+        <MainLayout>
             <HeroSection></HeroSection>
             <FeaturesSection></FeaturesSection>
             <TestimonialsSection></TestimonialsSection>
             <ContactSection></ContactSection>
-        </HomepageLayout>
+        </MainLayout>
     </div>
 </template>

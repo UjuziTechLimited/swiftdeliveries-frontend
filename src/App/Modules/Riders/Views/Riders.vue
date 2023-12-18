@@ -1,18 +1,18 @@
 
 <script setup lang="ts">
-import MainLayout from '../../../Common/Layouts/MainLayout.vue';
+import AdminLayout from '../../../Common/Layouts/AdminLayout.vue';
 
 </script>
 
 
 <template>
-    <MainLayout>
+    <AdminLayout>
 
         <div>
             <h1 class="font-extrabold">Riders</h1>
         </div>
 
-    </MainLayout>
+    </AdminLayout>
 </template>
 
 <style scoped></style>

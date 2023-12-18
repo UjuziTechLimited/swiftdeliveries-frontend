@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import MainLayout from '../../../Common/Layouts/MainLayout.vue';
+import AdminLayout from '../../../Common/Layouts/AdminLayout.vue';
 
 const mapVisible = ref(true);
 const activeTab = ref('assigned');
@@ -10,7 +10,7 @@ const toggleMap = () => {
 };
 </script>
 <template>
-    <MainLayout>
+    <AdminLayout>
         <div class="flex gap-2">
             <div class="mt-4">
                 <ul class="flex flex-row justify-between px-4 py-2 border-b rounded-t-lg">
@@ -42,6 +42,6 @@ const toggleMap = () => {
             <span v-if="!mapVisible">Show Map</span>
             <span v-else>Hide Map</span>
         </button>
-    </MainLayout>
+    </AdminLayout>
 </template>
 

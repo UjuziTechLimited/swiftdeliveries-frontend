@@ -19,4 +19,15 @@ export default {
             });
         });
     },
+    logout(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({
+                    data: {
+                        message: 'Logout success',
+                    },
+                });
+            });
+        });
+    },
 };
