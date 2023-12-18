@@ -16,7 +16,7 @@ const router = useRouter();
 const login = async () => {
     try {
         await AuthStore.login(form.email, form.password);
-        // You can handle successful login redirection here
+
     } catch (error) {
         console.log(error.message);
     }
