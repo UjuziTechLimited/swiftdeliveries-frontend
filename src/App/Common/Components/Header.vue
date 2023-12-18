@@ -11,23 +11,26 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="container mx-auto navbar bg-base-100">
+    <div class="container mx-auto navbar">
         <div class="navbar-start">
-            <RouterLink :to="{ name: 'Homepage' }" class="text-xl btn btn-ghost">SwiftDeliveries</RouterLink>
+            <img src="@/assets/images/logo.png" alt="ujuzitech logo" class="w-12 h-12">
+            <RouterLink :to="{ name: 'Homepage' }" class="text-xl font-bold btn btn-ghost">SwiftDeliveries</RouterLink>
         </div>
         <div class="hidden navbar-center lg:flex">
             <ul class="px-1 menu menu-horizontal">
-                <li><a>Platform</a></li>
+                <li>
+                    <RouterLink :to="{ name: 'Dashboard' }" class="text-xl font-bold">Platform </RouterLink>
+                </li>
                 <li>
                     <details>
-                        <summary>About</summary>
+                        <summary class="text-xl font-bold">About</summary>
                         <ul class="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
+                            <li><a href="#features" class="text-xl font-bold">Features</a></li>
+                            <li><a href="#testimonials" class="text-xl font-bold">Testimonials</a></li>
                         </ul>
                     </details>
                 </li>
-                <li><a>Contact Us</a></li>
+                <li><a href="#contact" class="text-xl font-bold">Contact Us</a></li>
             </ul>
         </div>
 
@@ -40,21 +43,23 @@ onMounted(() => {
                     </svg>
                 </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box ">
-                    <li><a>Platform</a></li>
                     <li>
-                        <a>About</a>
+                        <RouterLink :to="{ name: 'Dashboard' }" class="text-xl font-bold">Platform </RouterLink>
+                    </li>
+                    <li>
+                        <a class="text-xl font-bold">About</a>
                         <ul class="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
+                            <li><a href="#features" class="text-xl font-bold">Features</a></li>
+                            <li><a href="#testimonials" class="text-xl font-bold">Testimonials</a></li>
                         </ul>
                     </li>
-                    <li><a>Contact Us</a></li>
+                    <li><a href="#contact" class="text-xl font-bold">Contact Us</a></li>
                 </ul>
             </div>
             <label class="swap swap-rotate">
                 <!-- this hidden checkbox controls the state -->
-                <input data-toggle-theme="dim,nord" data-act-class="nord" type="checkbox" class="theme-controller"
-                    value="dim" />
+                <input data-toggle-theme="dark,light" data-act-class="light" type="checkbox" class="theme-controller"
+                    value="dark" />
                 <!-- sun icon -->
                 <svg class="w-5 h-5 fill-current swap-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path

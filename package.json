@@ -25,7 +25,8 @@
     "theme-change": "^2.5.0",
     "vue": "^3.3.10",
     "vue-azure-maps": "^0.0.30",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue3-lottie": "latest"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",

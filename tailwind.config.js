@@ -10,7 +10,7 @@ export default {
     extend: {},
   },
   darkMode: 'class',
-  darkMode: ["class", "[data-theme='dim']"],
+  darkMode: ["class", "[data-theme='dark']"],
   plugins: [
     require('@tailwindcss/typography'),
 
@@ -18,7 +18,7 @@ export default {
   ],
   // ...
   daisyui: {
-    themes: ["nord", "dim"]
+    themes: ["light", "dark"]
   },
 }
 

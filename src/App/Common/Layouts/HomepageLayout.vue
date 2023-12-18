@@ -5,7 +5,7 @@ import Footer from "../Components/Footer.vue"
 </script>
 
 <template>
-    <div class="overflow-hidden">
+    <div class="overflow-hidden bg-base-200">
         <Header></Header>
 
         <slot></slot>

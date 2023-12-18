@@ -3,6 +3,7 @@ export interface User {
     username: string;
     email: string;
     password: string;
+    isloggedIn: boolean;
     // Add any other relevant user data fields
 }
 

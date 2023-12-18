@@ -1,12 +1,30 @@
-<script setup lang="ts">
+<script setup>
 import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
+import { onMounted, ref, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/stores/AuthStore';
 
+const AuthStore = useAuthStore();
+
+const form = reactive({
+    email: 'admin@admin.com',
+    password: 'admin'
+});
+
+const router = useRouter();
+
+const login = async () => {
+    try {
+        await AuthStore.login(form.email, form.password);
+        // You can handle successful login redirection here
+    } catch (error) {
+        console.log(error.message);
+    }
+};
 </script>
-
-
 <template>
     <MainLayout>
-        <div class="min-h-screen hero bg-base-200">
+        <div class="container min-h-screen mx-auto hero bg-base-200 rounded-xl">
             <div class="flex-col hero-content lg:flex-row-reverse">
                 <div class="text-center lg:text-left">
                     <h1 class="text-5xl font-bold">Login now!</h1>
@@ -15,18 +33,20 @@ import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
                         quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
                 <div class="w-full max-w-sm shadow-2xl card shrink-0 bg-base-100">
-                    <form class="card-body">
+                    <form class="card-body" @submit.prevent="login">
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" class="input input-bordered" required />
+                            <input v-model="form.email" type="email" placeholder="email" class="input input-bordered"
+                                required />
                         </div>
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" class="input input-bordered" required />
+                            <input v-model="form.password" type="password" placeholder="password"
+                                class="input input-bordered" required />
                             <label class="label">
                                 <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
                             </label>
