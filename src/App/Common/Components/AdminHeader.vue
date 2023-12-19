@@ -1,12 +1,12 @@
-<script setup lang="ts">
+<script setup>
 import { themeChange } from 'theme-change';
 
 import { onMounted } from "vue";
 import { RouterLink } from 'vue-router';
 
-import { useAuthStore } from '@/stores/AuthStore';
+import { useAuthStore } from '@/stores/auth';
 
-const AuthStore = useAuthStore();
+const authStore = useAuthStore();
 
 const logout = async () => {
     try {

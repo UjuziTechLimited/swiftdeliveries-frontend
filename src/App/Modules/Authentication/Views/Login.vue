@@ -1,22 +1,21 @@
 <script setup>
 import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
-import { onMounted, ref, reactive } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useAuthStore } from '@/stores/AuthStore';
+import { useAuthStore } from '@/stores/auth';
 
-const AuthStore = useAuthStore();
-
-const form = reactive({
-    email: 'admin@admin.com',
-    password: 'admin'
-});
 
 const router = useRouter();
 
+const email = ref("");
+const password = ref("");
+
+const AuthStore = useAuthStore();
+
 const login = async () => {
     try {
-        await AuthStore.login(form.email, form.password);
-
+        await AuthStore.login(email, password);
+        router.push({ name: "dashboard" });
     } catch (error) {
         console.log(error.message);
     }
@@ -38,21 +37,21 @@ const login = async () => {
                             <label class="label">
                                 <span class="label-text">Email</span>
                             </label>
-                            <input v-model="form.email" type="email" placeholder="email" class="input input-bordered"
-                                required />
+                            <input v-model="email" name="email" type="email" placeholder="someone@example.com"
+                                class="input input-bordered" required />
                         </div>
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Password</span>
                             </label>
-                            <input v-model="form.password" type="password" placeholder="password"
+                            <input v-model="password" name="password" type="password" placeholder="password"
                                 class="input input-bordered" required />
                             <label class="label">
                                 <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
                         <div class="mt-6 form-control">
-                            <button class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn btn-primary">Login</button>
                         </div>
                     </form>
                 </div>

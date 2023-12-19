@@ -1,18 +1,22 @@
 import { createApp } from 'vue'
+
 import App from './App.vue'
 import router from './router'
-import { createPinia } from 'pinia'
-import './axios'
+
+import api from './services/api'
+
+import { pinia } from './stores/store'
+
 import Vue3Lottie from 'vue3-lottie'
 
 
-// import tailwindcss
 import './assets/css/tailwind.css'
 
-// Azure Maps
-// import VueAzureMaps from 'vue-azure-maps'
 
-const pinia = createPinia()
+// Set the CSRF token for Axios
+api.defaults.headers.common['X-CSRF-TOKEN'] = document.head.querySelector(
+    'meta[name="csrf-token"]'
+).content;
 
 
 const app = createApp(App)
