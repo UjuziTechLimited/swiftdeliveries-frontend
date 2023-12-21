@@ -1,22 +1,19 @@
+<!-- src/App/Modules/Orders/Components/OrderList.vue -->
 <script setup>
-import { onMounted, ref } from 'vue';
-import axios from 'axios';
+import { computed } from 'vue';
+import { useOrdersStore } from '@/stores/ordersStore';
+import EditOrder from './EditOrder.vue';
 
-const orders = ref([]);
+const ordersStore = useOrdersStore();
 
-onMounted(() => {
-    fetchOrders();
-});
+const filteredOrders = computed(() => ordersStore.filteredOrders)
 
-const fetchOrders = async () => {
-    try {
-        const response = await axios.get('http://localhost:8000/api/orders');
-        orders.value = response.data.orders;
-    } catch (error) {
-        console.error('Error fetching orders', error);
-    }
-};
 
+// const editOrder = (order) => {
+//     ordersStore.selectOrderForEdit(order);
+//     // Trigger the modal for editing
+//     // ordersStore.showEditOrderModal();
+// };
 
 
 </script>
@@ -24,17 +21,41 @@ const fetchOrders = async () => {
 
 <template>
     <div>
-        <h2>Orders</h2>
-        <ul>
-            <li v-for="order in orders" :key="order.id">
-                {{ order.recipient }} - {{ order.packageType }}
-                <!-- Display other order details as needed -->
-            </li>
-        </ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="font-bold font-headings">ID</th>
+                    <th class="font-bold font-headings">Recipient Name</th>
+                    <th class="font-bold font-headings">Delivery Type</th>
+                    <th class="font-bold font-headings">Assigned Rider</th>
+                    <th class="font-bold font-headings">Delivery Status</th>
+                    <th class="font-bold font-headings">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="hover" v-for="order in filteredOrders" :key="order.id">
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.recipient.name }}</td>
+                    <td>{{ order.orderType }}</td>
+                    <td>{{ order.assignedRider }}</td>
+                    <td>{{ order.deliveryStatus }}</td>
+                    <td>
+                        <button class="m-2 btn btn-primary" @click="ordersStore.toggleDeliveryStatus(order.id)">
+                            Toggle Status</button>
+
+                        <!-- <button class="m-2 btn btn-primary" @click="markComplete(order)"
+                            :disabled="order.deliveryStatus !== 'Pending'">
+                            Complete</button> -->
+
+                        <!-- <button class="m-2 btn btn-error" @click="ordersStore.editOrder(order)">Edit</button> -->
+
+                        <button class="m-2 btn btn-error" @click="ordersStore.removeOrder(order.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
 
-<style>
-/* Your styling goes here */
-</style>
+

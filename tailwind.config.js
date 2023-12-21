@@ -7,12 +7,21 @@ export default {
     './src/**/*.{vue,js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'headings': ['JetBrains Mono', 'monospace'],
+        'ArtStyle': ['Permanent Marker', 'cursive'],
+        'content': ['Red Hat Mono', 'monospace'],
+      }
+
+
+
+    },
   },
   darkMode: 'class',
   darkMode: ["class", "[data-theme='dark']"],
   plugins: [
-    require('@tailwindcss/typography'),
+    // require('@tailwindcss/typography'),
 
     require('daisyui')
   ],

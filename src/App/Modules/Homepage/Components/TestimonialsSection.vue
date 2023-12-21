@@ -36,6 +36,7 @@
     padding: 1.5rem;
     border-radius: 0.5rem;
     transition: all 0.3s ease-in-out;
+    /* @apply: text-left border border-content p-1 rounded-md transition-all duration-300 ease-in-out; */
 }
 
 .testimonial-card:hover {

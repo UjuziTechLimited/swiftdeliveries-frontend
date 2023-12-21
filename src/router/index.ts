@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
 import moduleRoutes from '@/App/router'
-import { useAuthStore } from '@/stores/auth.js'
+import { useAuthStore } from '@/stores/auth'
 
 
 
@@ -22,7 +22,11 @@ const router = createRouter({
 
 
 router.beforeEach((to, from, next) => {
-  if (to.name === 'Dashboard' && !useAuthStore().isAuthenticated) {
+
+  const authStore = useAuthStore()
+
+  if (to.name === 'Dashboard' && !authStore.isAuthenticated) {
+    // if (!useAuthStore.isAuthenticated) {
     next({ name: 'Login' });
   } else {
     next();

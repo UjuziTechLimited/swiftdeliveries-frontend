@@ -1,18 +1,56 @@
 
-<script setup lang="ts">
-import AdminLayout from '../../../Common/Layouts/AdminLayout.vue';
+<script setup>
+import { ref, computed } from 'vue';
+import AdminLayout from '@/App/Common/Layouts/AdminLayout.vue';
+import RiderList from '../Components/RiderList.vue';
+import NewRider from '../Components/NewRider.vue';
 
+import { useRidersStore } from '@/stores/ridersStore';
+
+
+const ridersStore = useRidersStore();
+const searchQuery = ref('');
+const selectedRider = ref(null);
+
+const createRider = (rider) => {
+
+    ridersStore.addRider(rider);
+
+};
+const clearSearch = () => {
+    searchQuery.value = ''; // Clear the search box
+    ridersStore.clearSearchResults(); // Clear the search results
+};
+const editRider = (rider) => {
+    ridersStore.selectRiderForEditt(rider);
+    // Show the modal
+    my_modal_3.showModal();
+};
 </script>
-
 
 <template>
     <AdminLayout>
+        <div class="my-4 text-2xl text-center font-headings">Riders</div>
+        <div class="container mx-auto">
+            <div class="flex justify-center gap-4">
+                <button class="btn" onclick="my_modal_3.showModal()">Add Rider</button>
+                <dialog id="my_modal_3" class="modal">
+                    <div class="modal-box">
+                        <form method="dialog">
+                            <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
+                        </form>
+                        <NewRider @submitForm="createRider" />
+                    </div>
+                </dialog>
 
-        <div>
-            <h1 class="font-extrabold">Riders</h1>
+
+                <input v-model="ridersStore.searchQuery" @input="searchRiders" class="input input-bordered"
+                    placeholder="Search Riders" />
+                <button class="btn btn-circle btn-error" @click="clearSearch">X</button>
+            </div>
+            <div>
+                <RiderList :riders="ridersStore.filteredRiders" />
+            </div>
         </div>
-
     </AdminLayout>
 </template>
-
-<style scoped></style>

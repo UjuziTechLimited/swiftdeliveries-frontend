@@ -6,8 +6,8 @@ const activeTab = ref('assigned');
 </script>
 
 <template>
-    <section class="container flex mx-auto">
-        <div class="w-1/2">
+    <section class="w-1/2">
+        <div class="">
             <div class="mt-4">
                 <ul class="flex flex-row justify-between px-4 py-2">
                     <li class="w-full p-2 m-2 text-center border-r-4 border-info">
@@ -32,11 +32,6 @@ const activeTab = ref('assigned');
                     <NewOrders></NewOrders>
                 </div>
             </div>
-        </div>
-        <div class="container w-1/2 border-2 border-primary">
-            <h1>Map goes here</h1>
-            <div></div>
-
         </div>
     </section>
 </template>

@@ -1,78 +1,55 @@
-
-<script setup lang="ts">
-import { ref } from 'vue';
-import axios from 'axios';
-import AdminLayout from '../../../Common/Layouts/AdminLayout.vue';
+<!-- src/App/Modules/Orders/Views/Orders.vue -->
+<script setup>
+import { ref, computed } from 'vue';
+import AdminLayout from '@/App/Common/Layouts/AdminLayout.vue';
 import OrderList from '../Components/OrderList.vue';
-import router from '@/router';
+import NewOrder from '../Components/NewOrder.vue';
 
-const order = ref({
-    recipient: '',
-    packageType: '',
-    // Add other order fields here
-});
+import { useOrdersStore } from '@/stores/ordersStore';
 
-const submitOrder = async () => {
-    console.log(order.value)
-    try {
-        // Send a POST request to your Laravel API endpoint
-        const response = await axios.post('http://localhost:8000/api/orders', order);
+const ordersStore = useOrdersStore();
+const searchQuery = ref('');
+const selectedOrder = ref(null);
 
-        // Handle the response as needed (e.g., show a success message)
-        console.log('Order submitted successfully', response.data);
+const createOrder = (order) => {
 
-        // Optionally, reset the form or navigate to another page
-        router.push('/success'); // Replace '/success' with your desired route
-    } catch (error) {
-        // Handle errors (e.g., show an error message)
-        console.error('Error submitting order', error);
-    }
+    ordersStore.addOrder(order);
 
 };
-
+const clearSearch = () => {
+    searchQuery.value = ''; // Clear the search box
+    ordersStore.clearSearchResults(); // Clear the search results
+};
+const editOrder = (order) => {
+    ordersStore.selectOrderForEdit(order);
+    // Show the modal
+    orderFormModal.showModal();
+};
 </script>
-
 
 <template>
     <AdminLayout>
-
+        <div class="my-4 text-2xl text-center font-headings">Orders</div>
         <div class="container mx-auto">
-            <h1 class="p-2 m-2 text-2xl font-extrabold text-center">Orders</h1>
-            <div class="p-2 m-2 ">
-                <button class="btn" onclick="my_modal_1.showModal()">New Order</button>
-                <dialog id="my_modal_1" class="modal">
+            <div class="flex justify-center gap-4">
+                <button class="btn" onclick="my_modal_3.showModal()">New Order</button>
+                <dialog id="my_modal_3" class="modal">
                     <div class="modal-box">
-                        <form @submit.prevent="submitOrder">
-                            <!-- Your form fields go here, for example: -->
-                            <label for="recipient">Recipient:</label>
-                            <input v-model="order.recipient" type="text" id="recipient" required>
-
-                            <label for="packageType">Package Type:</label>
-                            <select v-model="order.packageType" id="packageType" required>
-                                <option value="package">Package</option>
-                                <option value="document">Document</option>
-                            </select>
-
-                            <!-- Add other form fields as needed -->
-
-                            <button type="submit">Submit Order</button>
+                        <form method="dialog">
+                            <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
                         </form>
-                        <div class="modal-action">
-                            <form method="dialog">
-                                <!-- if there is a button in form, it will close the modal -->
-                                <button class="btn">Close</button>
-                            </form>
-                        </div>
+                        <NewOrder @submitForm="createOrder" />
                     </div>
                 </dialog>
 
+
+                <input v-model="ordersStore.searchQuery" @input="searchOrders" class="input input-bordered"
+                    placeholder="Search Orders" />
+                <button class="btn btn-circle btn-error" @click="clearSearch">X</button>
             </div>
             <div>
-                <OrderList></OrderList>
+                <OrderList :orders="ordersStore.filteredOrders" />
             </div>
         </div>
-
     </AdminLayout>
 </template>
-
-<style scoped></style>

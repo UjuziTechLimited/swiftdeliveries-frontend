@@ -4,14 +4,16 @@ import { themeChange } from 'theme-change';
 import { onMounted } from "vue";
 import { RouterLink } from 'vue-router';
 
+import router from '@/router';
+
 import { useAuthStore } from '@/stores/auth';
 
 const authStore = useAuthStore();
 
 const logout = async () => {
     try {
-        await AuthStore.logout();
-        // You can handle successful login redirection here
+        await authStore.logout();
+        router.push('/login');
     } catch (error) {
         console.log(error);
     }

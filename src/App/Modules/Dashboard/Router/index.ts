@@ -6,8 +6,6 @@ export default [
         requiresAuth: true,
         meta: {
             title: 'Dashboard',
-            // requiresAuth: true,
         }
-
     }
 ]

@@ -1,25 +1,31 @@
 <script setup>
 import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
-import { onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router';
 import { useAuthStore } from '@/stores/auth';
+import { ref } from 'vue';
+
+import router from '@/router';
+
+const authStore = useAuthStore();
 
 
-const router = useRouter();
+const email = ref('');
+const password = ref('');
 
-const email = ref("");
-const password = ref("");
+const onLogin = async () => {
+    console.log('Login  button clicked')
+    console.log(authStore.token);
 
-const AuthStore = useAuthStore();
-
-const login = async () => {
-    try {
-        await AuthStore.login(email, password);
-        router.push({ name: "dashboard" });
-    } catch (error) {
-        console.log(error.message);
+    if (await authStore.login(email.value, password.value)) {
+        // Redirect to the dashboard on successful login
+        router.push('/dashboard');
+    } else {
+        // Handle failed login (show error message, etc.)
+        console.error('Invalid credentials');
     }
 };
+
+
+
 </script>
 <template>
     <MainLayout>
@@ -32,7 +38,7 @@ const login = async () => {
                         quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
                 <div class="w-full max-w-sm shadow-2xl card shrink-0 bg-base-100">
-                    <form class="card-body" @submit.prevent="login">
+                    <form class="card-body" @submit.prevent="onLogin">
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Email</span>

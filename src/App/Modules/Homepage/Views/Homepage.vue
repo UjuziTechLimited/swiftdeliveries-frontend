@@ -11,8 +11,8 @@ import ContactSection from '../Components/ContactSection.vue';
 </script>
 
 <template>
-    <div>
-        <MainLayout>
+    <div class="scroll-smooth">
+        <MainLayout class="scroll-py-6 snap-y">
             <HeroSection></HeroSection>
             <FeaturesSection></FeaturesSection>
             <TestimonialsSection></TestimonialsSection>

@@ -14,3 +14,7 @@ export interface UserAddress {
 export interface UserPreferences {
     // Define preference properties (e.g., language, theme)
 }
+export interface UserLoginCredentials {
+    email: string;
+    password: string;
+}
