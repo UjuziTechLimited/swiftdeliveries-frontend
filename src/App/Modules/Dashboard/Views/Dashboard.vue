@@ -10,8 +10,8 @@ import Map from '../Components/Map.vue';
 <template>
     <AdminLayout>
         <div class="flex min-h-screen">
-            <OrderSummary></OrderSummary>
-            <Map></Map>
+            <OrderSummary />
+            <Map />
         </div>
     </AdminLayout>
 </template>

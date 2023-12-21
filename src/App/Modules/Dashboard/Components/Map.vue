@@ -1,9 +1,3 @@
-<template>
-    <div class="relative w-full ">
-        <div class="absolute w-full h-full" ref="mapContainer"></div>
-    </div>
-</template>
-
 <script setup>
 import { Map, MapStyle, config } from '@maptiler/sdk';
 import { shallowRef, onMounted, onUnmounted, markRaw } from 'vue';
@@ -28,6 +22,15 @@ onMounted(() => {
         map.value?.remove();
     })
 </script>
+
+
+<template>
+    <div class="relative w-full">
+        <div class="absolute w-full h-full" ref="mapContainer"></div>
+    </div>
+</template>
+
+
 
 <style scoped>
 .map-wrap {
