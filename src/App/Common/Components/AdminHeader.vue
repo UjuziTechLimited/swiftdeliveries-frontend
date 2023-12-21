@@ -29,23 +29,24 @@ onMounted(() => {
     <div class="container mx-auto navbar">
         <div class="navbar-start">
             <img src="@/assets/images/logo.png" alt="ujuzitech logo" class="w-12 h-12">
-            <RouterLink :to="{ name: 'Homepage' }" class="text-xl font-bold btn btn-ghost">SwiftDeliveries</RouterLink>
+            <RouterLink :to="{ name: 'Homepage' }" class="p-2 text-2xl lowercase xl:text-4xl font-ArtStyle">SwiftDeliveries
+            </RouterLink>
         </div>
         <div class="hidden navbar-center lg:flex">
             <ul class="px-1 menu menu-horizontal">
                 <li>
-                    <RouterLink :to="{ name: 'Dashboard' }" class="text-xl font-bold">Dashboard </RouterLink>
+                    <RouterLink :to="{ name: 'Dashboard' }" class="text-2xl font-bold font-headings">Dashboard </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Orders' }" class="text-xl font-bold">Orders </RouterLink>
+                    <RouterLink :to="{ name: 'Orders' }" class="text-2xl font-bold font-headings">Orders </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Riders' }" class="text-xl font-bold">Riders </RouterLink>
+                    <RouterLink :to="{ name: 'Riders' }" class="text-2xl font-bold font-headings">Riders </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Analytics' }" class="text-xl font-bold">Analytics </RouterLink>
+                    <RouterLink :to="{ name: 'Analytics' }" class="text-2xl font-bold font-headings">Analytics </RouterLink>
                 </li>
-                <li>
+                <!-- <li>
                     <details>
                         <summary class="text-xl font-bold">Other Features</summary>
                         <ul class="p-2">
@@ -53,7 +54,7 @@ onMounted(() => {
                             <li><a href="#" class="text-xl font-bold">Feature 2</a></li>
                         </ul>
                     </details>
-                </li>
+                </li> -->
             </ul>
         </div>
 
