@@ -43,6 +43,9 @@ onMounted(() => {
                     <RouterLink :to="{ name: 'Riders' }" class="text-xl font-bold">Riders </RouterLink>
                 </li>
                 <li>
+                    <RouterLink :to="{ name: 'Analytics' }" class="text-xl font-bold">Analytics </RouterLink>
+                </li>
+                <li>
                     <details>
                         <summary class="text-xl font-bold">Other Features</summary>
                         <ul class="p-2">
