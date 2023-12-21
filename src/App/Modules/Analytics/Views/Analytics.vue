@@ -2,6 +2,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import AdminLayout from '@/App/Common/Layouts/AdminLayout.vue';
+import MainMenu from '../Components/MainMenu.vue';
 
 
 </script>
@@ -11,5 +12,7 @@ import AdminLayout from '@/App/Common/Layouts/AdminLayout.vue';
         <div>
             <div class="my-4 text-2xl text-center font-headings">Analytics</div>
         </div>
+        <MainMenu />
+
     </AdminLayout>
 </template>
