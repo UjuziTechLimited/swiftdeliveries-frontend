@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
 
 </script>

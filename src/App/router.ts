@@ -4,7 +4,7 @@ import OrdersRouter from './Modules/Orders/Router'
 import RidersRouter from './Modules/Riders/Router'
 import AuthenticationRouter from './Modules/Authentication/Router'
 import AnalyticsRouter from './Modules/Analytics/Router'
-
+import NotFound from './Common/Views/NotFound.vue'
 
 
 export default [
@@ -19,6 +19,7 @@ export default [
     {
         path: '/:catchAll(.*)',
         name: 'NotFound',
-        component: () => import('./Common/Views/NotFound.vue'),
-    }
+        component: NotFound,
+    },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]

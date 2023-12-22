@@ -9,7 +9,7 @@ export const useOrdersStore = defineStore('orders', {
                 id: 1,
                 recipient: {
                     name: 'John Doe',
-                    address: 'Nakuru',
+                    address: 'CBD',
                     phoneNumber: '2547xxxxxxxx',
 
                 },
@@ -22,13 +22,37 @@ export const useOrdersStore = defineStore('orders', {
                 id: 2,
                 recipient: {
                     name: 'Jane Doe',
-                    address: 'Nairobi',
+                    address: 'Karen',
+                    phoneNumber: '2547xxxxxxxx',
+                },
+                orderType: 'Document',
+                deliveryStatus: true,
+                isAssigned: true,
+                assignedRider: 'Rider 3'
+            },
+            {
+                id: 3,
+                recipient: {
+                    name: 'Mat Doe',
+                    address: 'South C',
                     phoneNumber: '2547xxxxxxxx',
                 },
                 orderType: 'Document',
                 deliveryStatus: true,
                 isAssigned: true,
                 assignedRider: 'Rider 2'
+            },
+            {
+                id: 4,
+                recipient: {
+                    name: 'Ben Doe',
+                    address: 'Westlands',
+                    phoneNumber: '2547xxxxxxxx',
+                },
+                orderType: 'Package',
+                deliveryStatus: true,
+                isAssigned: false,
+                assignedRider: 'Rider 1'
             },
         ],
         searchQuery: '',
