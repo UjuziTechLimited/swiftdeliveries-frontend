@@ -1,6 +1,7 @@
 
-<script setup lang="ts">
+<script setup>
 import DeliveryBoyJSON from '@/assets/images/DeliveryBoy.json'
+import { RouterLink } from 'vue-router'
 
 </script>
 
@@ -17,8 +18,9 @@ import DeliveryBoyJSON from '@/assets/images/DeliveryBoy.json'
                     packages,
                     ensuring secure and swift handling every step of the way.</p>
                 <div class="">
-                    <button class="my-2 btn btn-block btn-neutral">Learn More</button>
-                    <button class="my-2 btn btn-block btn-primary">Get a Quote</button>
+                    <RouterLink :to="{ name: 'Dashboard' }" class="my-2 btn btn-block btn-neutral">Go to Dashboard
+                    </RouterLink>
+                    <button class="my-2 btn btn-block btn-primary">Learn More</button>
                 </div>
 
             </div>

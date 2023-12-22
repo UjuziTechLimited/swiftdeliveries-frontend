@@ -1,5 +1,5 @@
 
-<script setup lang="ts">
+<script setup>
 import { RouterLink } from 'vue-router';
 import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
 import HeroSection from '../Components/HeroSection.vue';
