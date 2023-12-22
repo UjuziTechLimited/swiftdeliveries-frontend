@@ -25,7 +25,7 @@ import DeliveryBoyJSON from '@/assets/images/DeliveryBoy.json'
             <div class="flex items-center justify-center hidden rounded-full lg:block bg-base-300 overflow-clip">
                 <Vue3Lottie class="bg-base-300" :animationData="DeliveryBoyJSON" :height="480" />
             </div>
-            <div class="mt-4 md:hidden">
+            <div class="mt-4 lg:hidden">
                 <Vue3Lottie class="bg-base-300" :animationData="DeliveryBoyJSON" :height="144" :width="240" />
             </div>
 

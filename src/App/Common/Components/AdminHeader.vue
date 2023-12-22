@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router';
 
 import router from '@/router';
 
-import { useAuthStore } from '@/stores/auth';
+import { useAuthStore } from '@/stores/authStore';
 
 const authStore = useAuthStore();
 

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { themeChange } from 'theme-change';
 
 import { onMounted } from "vue";
@@ -7,6 +7,15 @@ import { RouterLink } from 'vue-router';
 onMounted(() => {
     themeChange(false);
 });
+
+
+const scrollToComponent = (componentId) => {
+    const element = document.getElementById(componentId);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
 
 </script>
 
@@ -29,39 +38,19 @@ onMounted(() => {
                         <details>
                             <summary class="text-2xl font-bold font-headings">About</summary>
                             <ul class="p-2">
-                                <li><a href="#features" class="text-xl font-bold font-content">Features</a></li>
-                                <li><a href="#testimonials" class="text-xl font-bold font-content">Testimonials</a></li>
+                                <li><a @click="scrollToComponent('features')" type="button"
+                                        class="text-xl font-bold font-content">Features</a></li>
+                                <li><a @click="scrollToComponent('testimonials')" type="button"
+                                        class="text-xl font-bold font-content">Testimonials</a></li>
                             </ul>
                         </details>
                     </li>
-                    <li><a href="#contact" class="text-2xl font-bold font-headings">Contact Us</a></li>
+                    <li><a @click="scrollToComponent('contact')" type="button"
+                            class="text-2xl font-bold font-headings">Contact Us</a></li>
                 </ul>
             </div>
 
             <div class="navbar-end">
-                <div class="dropdown dropdown-end ">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
-                    </div>
-                    <ul tabindex="0" class="absolute p-2 mt-3 shadow menu menu-md dropdown-content bg-base-100 rounded-box">
-                        <li>
-                            <RouterLink :to="{ name: 'Dashboard' }" class="text-2xl font-bold font-headings">Platform
-                            </RouterLink>
-                        </li>
-                        <li>
-                            <a class="text-2xl font-bold font-headings">About</a>
-                            <ul class="p-2">
-                                <li><a href="#features" class="text-xl font-bold font-content">Features</a></li>
-                                <li><a href="#testimonials" class="text-xl font-bold font-content">Testimonials</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#contact" class="text-2xl font-bold font-headings">Contact Us</a></li>
-                    </ul>
-                </div>
                 <label class="p-2 rounded-full swap swap-rotate hover:bg-base-300">
                     <!-- this hidden checkbox controls the state -->
                     <input data-toggle-theme="dark,light" data-act-class="light" type="checkbox" class="theme-controller"
@@ -77,6 +66,35 @@ onMounted(() => {
                             d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
                     </svg>
                 </label>
+
+                <div class="dropdown dropdown-end ">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0" class="absolute p-2 mt-3 shadow menu menu-md dropdown-content bg-base-100 rounded-box">
+                        <li>
+                            <RouterLink :to="{ name: 'Dashboard' }" class="text-2xl font-bold font-headings">Platform
+                            </RouterLink>
+                        </li>
+                        <li>
+                            <a @click="" type="button" class="text-2xl font-bold font-headings">About</a>
+                            <ul class="p-2">
+                                <li><a @click="scrollToComponent('features')" type="button"
+                                        class="text-xl font-bold font-content">Features</a></li>
+                                <li><a @click="scrollToComponent('testimonials')" type="button"
+                                        class="text-xl font-bold font-content">Testimonials</a></li>
+                            </ul>
+                        </li>
+                        <li><a @click="scrollToComponent('contact')" type="button"
+                                class="text-2xl font-bold font-headings">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>

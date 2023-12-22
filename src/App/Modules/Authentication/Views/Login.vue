@@ -1,6 +1,6 @@
 <script setup>
 import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
-import { useAuthStore } from '@/stores/auth';
+import { useAuthStore } from '@/stores/authStore';
 import { ref } from 'vue';
 
 import router from '@/router';

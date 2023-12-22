@@ -45,7 +45,7 @@ export const useAuthStore = defineStore('auth', {
         // Function to check if the user is authenticated
         isAuthenticated() {
             // return !!this.token && this.tokenExpiry > new Date();
-            if (this.token && this.tokenExpiry > new Date()) {
+            if (this.token) {
                 return true;
             }
             return false;
