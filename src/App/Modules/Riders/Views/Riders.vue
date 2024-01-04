@@ -6,6 +6,7 @@ import RiderList from '../Components/RiderList.vue';
 import NewRider from '../Components/NewRider.vue';
 
 import { useRidersStore } from '@/stores/ridersStore';
+import DrawerLayout from '@/App/Common/Layouts/DrawerLayout.vue';
 
 
 const ridersStore = useRidersStore();
@@ -29,7 +30,7 @@ const editRider = (rider) => {
 </script>
 
 <template>
-    <AdminLayout>
+    <DrawerLayout>
         <div class="my-4 text-2xl text-center font-headings">Riders</div>
         <div class="container mx-auto">
             <div class="flex justify-center gap-4">
@@ -52,5 +53,5 @@ const editRider = (rider) => {
                 <RiderList :riders="ridersStore.filteredRiders" />
             </div>
         </div>
-    </AdminLayout>
+    </DrawerLayout>
 </template>

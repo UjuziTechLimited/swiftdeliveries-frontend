@@ -6,7 +6,7 @@ const activeTab = ref('assigned');
 </script>
 
 <template>
-    <section class="w-1/2">
+    <section class="">
         <div class="">
             <div class="mt-4">
                 <ul class="flex flex-row justify-between px-4 py-2">

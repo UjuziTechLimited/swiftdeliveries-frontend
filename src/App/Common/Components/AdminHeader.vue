@@ -29,7 +29,8 @@ onMounted(() => {
     <div class="container mx-auto navbar">
         <div class="navbar-start">
             <img src="@/assets/images/logo.png" alt="ujuzitech logo" class="w-12 h-12">
-            <RouterLink :to="{ name: 'Homepage' }" class="p-2 text-2xl lowercase xl:text-4xl font-ArtStyle">SwiftDeliveries
+            <RouterLink :to="{ name: 'Homepage' }" class="p-2 lowercase xs:text-md md:text-lg xl:text-4xl font-ArtStyle">
+                SwiftDeliveries
             </RouterLink>
         </div>
         <div class="hidden navbar-center lg:flex">
@@ -46,15 +47,6 @@ onMounted(() => {
                 <li>
                     <RouterLink :to="{ name: 'Analytics' }" class="text-2xl font-bold font-headings">Analytics </RouterLink>
                 </li>
-                <!-- <li>
-                    <details>
-                        <summary class="text-xl font-bold">Other Features</summary>
-                        <ul class="p-2">
-                            <li><a href="#" class="text-xl font-bold">Feature 1</a></li>
-                            <li><a href="#" class="text-xl font-bold">Feature 2</a></li>
-                        </ul>
-                    </details>
-                </li> -->
             </ul>
         </div>
 

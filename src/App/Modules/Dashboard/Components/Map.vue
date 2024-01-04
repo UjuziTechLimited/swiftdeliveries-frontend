@@ -1,7 +1,12 @@
 <script setup>
-import { Map, MapStyle, config } from '@maptiler/sdk';
 import { shallowRef, onMounted, onUnmounted, markRaw } from 'vue';
+
+import { Map, MapStyle, Marker, config } from '@maptiler/sdk';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
+import * as maptilersdk from '@maptiler/sdk';
+
+const props = defineProps(['searchQuery']);
+const emit = defineEmits(['selectLocation']);
 
 const mapContainer = shallowRef(null);
 const map = shallowRef(null);
@@ -9,40 +14,38 @@ const map = shallowRef(null);
 onMounted(() => {
     config.apiKey = import.meta.env.VITE_MAPTILER_API_KEY;
 
-    const initialState = { lng: 36.8189302, lat: -1.2731758, zoom: 10 };
+    // const initialState = { lng: 36.8189302, lat: -1.2731758, zoom: 10 };
+
     map.value = markRaw(new Map({
         container: mapContainer.value,
         style: MapStyle.STREETS,
-        center: [initialState.lng, initialState.lat],
-        zoom: initialState.zoom
+        geolocate: maptilersdk.GeolocationType.POINT, // center map based on visitor’s location
+        // center: [initialState.lng, initialState.lat],
+        // zoom: initialState.zoom
     }));
+
+    // new Marker({ color: "#FF0000" })
+    //     .setLngLat([36.8189302, -1.2731758])
+    //     .addTo(map.value);
+
+
 
 }),
     onUnmounted(() => {
         map.value?.remove();
     })
+
+
 </script>
 
 
 <template>
-    <div class="relative w-full">
-        <div class="absolute w-full h-full" ref="mapContainer"></div>
+    <!-- height: calc(100vh - 200px) /* calculate height of the screen minus the heading */ ; width: 100% -->
+    <div class="w-full h-screen ">
+        <div class="w-full h-full" ref="mapContainer"></div> <!-- width: 100% height: 100% -->
     </div>
 </template>
 
 
 
-<style scoped>
-.map-wrap {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 200px);
-    /* calculate height of the screen minus the heading */
-}
-
-.map {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-</style>
+<style scoped></style>

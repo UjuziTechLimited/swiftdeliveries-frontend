@@ -1,7 +1,7 @@
 <!-- src/App/Modules/Orders/Views/Orders.vue -->
 <script setup>
 import { ref, computed } from 'vue';
-import AdminLayout from '@/App/Common/Layouts/AdminLayout.vue';
+import DrawerLayout from '@/App/Common/Layouts/DrawerLayout.vue';
 import OrderList from '../Components/OrderList.vue';
 import NewOrder from '../Components/NewOrder.vue';
 
@@ -28,10 +28,10 @@ const editOrder = (order) => {
 </script>
 
 <template>
-    <AdminLayout>
+    <DrawerLayout>
         <div class="my-4 text-2xl text-center font-headings">Orders</div>
         <div class="container mx-auto">
-            <div class="flex justify-center gap-4">
+            <div class="flex justify-center gap-4 sm:max-w-screen-sm">
                 <button class="btn" onclick="my_modal_3.showModal()">New Order</button>
                 <dialog id="my_modal_3" class="modal">
                     <div class="modal-box">
@@ -51,5 +51,5 @@ const editOrder = (order) => {
                 <OrderList :orders="ordersStore.filteredOrders" />
             </div>
         </div>
-    </AdminLayout>
+    </DrawerLayout>
 </template>
