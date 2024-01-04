@@ -20,6 +20,7 @@ onMounted(() => {
         container: mapContainer.value,
         style: MapStyle.STREETS,
         geolocate: maptilersdk.GeolocationType.POINT, // center map based on visitor’s location
+        navigationControl: false //disable the navigation control
         // center: [initialState.lng, initialState.lat],
         // zoom: initialState.zoom
     }));

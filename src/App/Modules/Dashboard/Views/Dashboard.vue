@@ -15,14 +15,14 @@ const dropOffLocation = ref('');
             <div class="">
                 <Map />
             </div>
-            <div class="fixed bottom-0 flex w-full gap-5 p-4 h-1/4 rounded-t-2xl bg-base-200">
-                <div>
+            <div class="fixed bottom-0 grid w-full grid-rows-2 gap-5 p-4 h-1/3 rounded-t-3xl bg-base-200">
+                <div class="p-2 m-2">
                     <div>PICKUP</div>
-                    <input v-model="pickupLocation" type="text" placeholder="Type here" class="w-full max-w-xs input" />
+                    <input v-model="pickupLocation" type="text" placeholder="Type here" class="w-full input" />
                 </div>
-                <div>
+                <div class="p-2 m-2">
                     <div>DROP OFF</div>
-                    <input v-model="dropOffLocation" type="text" placeholder="Where To?" class="w-full max-w-xs input" />
+                    <input v-model="dropOffLocation" type="text" placeholder="Where To?" class="w-full input" />
                 </div>
             </div>
         </div>
