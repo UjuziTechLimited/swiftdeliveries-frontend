@@ -20,26 +20,26 @@ const filteredOrders = computed(() => ordersStore.filteredOrders)
 
 
 <template>
-    <div>
-        <table class="table">
+    <div class="w-full sm:max-w-sm">
+        <table class="table-auto ">
             <thead>
-                <tr>
-                    <th class="font-bold font-headings">ID</th>
-                    <th class="font-bold font-headings">Recipient Name</th>
-                    <th class="font-bold font-headings">Delivery Type</th>
-                    <th class="font-bold font-headings">Assigned Rider</th>
-                    <th class="font-bold font-headings">Delivery Status</th>
-                    <th class="font-bold font-headings">Actions</th>
+                <tr class="">
+                    <th class="font-bold font-headings ">ID</th>
+                    <th class="font-bold font-headings ">Recipient Name</th>
+                    <th class="font-bold font-headings ">Delivery Type</th>
+                    <th class="font-bold font-headings ">Assigned Rider</th>
+                    <th class="font-bold font-headings ">Delivery Status</th>
+                    <th class="font-bold font-headings ">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="hover" v-for="order in filteredOrders" :key="order.id">
-                    <td>{{ order.id }}</td>
-                    <td>{{ order.recipient.name }}</td>
-                    <td>{{ order.orderType }}</td>
-                    <td>{{ order.assignedRider }}</td>
-                    <td>{{ order.deliveryStatus }}</td>
-                    <td>
+                    <td class="">{{ order.id }}</td>
+                    <td class="">{{ order.recipient.name }}</td>
+                    <td class="">{{ order.orderType }}</td>
+                    <td class="">{{ order.assignedRider }}</td>
+                    <td class="">{{ order.deliveryStatus }}</td>
+                    <td class="">
                         <button class="m-2 btn btn-primary" @click="ordersStore.toggleDeliveryStatus(order.id)">
                             Toggle Status</button>
 
