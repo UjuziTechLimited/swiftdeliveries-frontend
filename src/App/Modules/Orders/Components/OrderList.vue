@@ -20,42 +20,45 @@ const filteredOrders = computed(() => ordersStore.filteredOrders)
 
 
 <template>
-    <div class="w-full sm:max-w-sm">
-        <table class="table-auto ">
-            <thead>
-                <tr class="">
-                    <th class="font-bold font-headings ">ID</th>
-                    <th class="font-bold font-headings ">Recipient Name</th>
-                    <th class="font-bold font-headings ">Delivery Type</th>
-                    <th class="font-bold font-headings ">Assigned Rider</th>
-                    <th class="font-bold font-headings ">Delivery Status</th>
-                    <th class="font-bold font-headings ">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="hover" v-for="order in filteredOrders" :key="order.id">
-                    <td class="">{{ order.id }}</td>
-                    <td class="">{{ order.recipient.name }}</td>
-                    <td class="">{{ order.orderType }}</td>
-                    <td class="">{{ order.assignedRider }}</td>
-                    <td class="">{{ order.deliveryStatus }}</td>
-                    <td class="">
-                        <button class="m-2 btn btn-primary" @click="ordersStore.toggleDeliveryStatus(order.id)">
-                            Toggle Status</button>
+<div class="overflow-x-auto mx-2">
+    <table class="min-w-full table-auto">
+        <thead>
+            <tr>
+                <th class="px-4 py-2 font-bold">ID</th>
+                <th class="px-4 py-2 font-bold">Recipient Name</th>
+                <th class="px-4 py-2 font-bold">Delivery Type</th>
+                <th class="px-4 py-2 font-bold">Assigned Rider</th>
+                <th class="px-4 py-2 font-bold">Delivery Status</th>
+                <th class="px-4 py-2 font-bold">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="order in filteredOrders" :key="order.id">
+                <td class="border-t px-4 py-2">{{ order.id }}</td>
+                <td class="border-t px-4 py-2">{{ order.recipient.name }}</td>
+                <td class="border-t px-4 py-2">{{ order.orderType }}</td>
+                <td class="border-t px-4 py-2">{{ order.assignedRider }}</td>
+                <td class="border-t px-4 py-2">{{ order.deliveryStatus }}</td>
+                <td class="border-t px-4 py-2">
+                    <button class="m-2 btn btn-primary" @click="ordersStore.toggleDeliveryStatus(order.id)">
+                        Toggle Status
+                    </button>
+                    <button class="m-2 btn btn-error" @click="ordersStore.removeOrder(order.id)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</template>
 
                         <!-- <button class="m-2 btn btn-primary" @click="markComplete(order)"
                             :disabled="order.deliveryStatus !== 'Pending'">
                             Complete</button> -->
 
                         <!-- <button class="m-2 btn btn-error" @click="ordersStore.editOrder(order)">Edit</button> -->
-
-                        <button class="m-2 btn btn-error" @click="ordersStore.removeOrder(order.id)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</template>
 
 
 
