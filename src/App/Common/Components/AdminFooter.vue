@@ -6,12 +6,6 @@
 <template>
     <div class="w-1/2 mx-auto text-center duration-300 ease-in-out border-t-2 border-primary hover:w-full"></div>
     <footer class="p-10 rounded footer footer-center bg-base-200 text-base-content">
-        <nav class="grid grid-flow-col gap-4">
-            <a class="link link-hover">About us</a>
-            <a class="link link-hover">Contact</a>
-            <a class="link link-hover">Jobs</a>
-            <a class="link link-hover">Press kit</a>
-        </nav>
         <nav>
             <div class="grid grid-flow-col gap-4">
                 <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">

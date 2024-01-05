@@ -1,11 +1,7 @@
 <!-- src/App/Modules/Orders/Views/Orders.vue -->
 <script setup>
-import { ref, computed } from 'vue';
-import AdminLayout from '@/App/Common/Layouts/AdminLayout.vue';
 import MainMenu from '../Components/MainMenu.vue';
 import DrawerLayout from '@/App/Common/Layouts/DrawerLayout.vue';
-
-
 </script>
 
 <template>
