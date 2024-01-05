@@ -1,26 +1,28 @@
-<!-- src/App/Modules/Orders/Views/Orders.vue -->
+<!-- src/App/Modules/Orders/Views/Inbox.vue -->
 <script setup>
 import { ref } from 'vue';
 import DrawerLayout from '@/App/Common/Layouts/DrawerLayout.vue';
-import OrderList from '../Components/OrderList.vue';
+import InboxList from '../Components/InboxList.vue';
 
-import { useOrdersStore } from '@/stores/ordersStore';
+import { useInboxStore } from '@/stores/inboxStore';
 import NewOrderForm from '../Components/NewOrderForm.vue';
 
-const ordersStore = useOrdersStore();
+const inboxStore = useInboxStore();
 const searchQuery = ref('');
 
-const createOrder = (order) => {
-    ordersStore.addOrder(order);
+// const createOrder = (order) => {
+//     inboxStore.addOrder(order);
 
-};
+// };
+
+
 const clearSearch = () => {
     searchQuery.value = ''; // Clear the search box
-    ordersStore.clearSearchResults(); // Clear the search results
+    inboxStore.clearSearchResults(); // Clear the search results
 };
 
 // const editOrder = (order) => {
-//     ordersStore.selectOrderForEdit(order);
+//     inboxStore.selectOrderForEdit(order);
 //     // Show the modal
 //     orderFormModal.showModal();
 // };
@@ -28,10 +30,10 @@ const clearSearch = () => {
 
 <template>
     <DrawerLayout>
-        <div class="my-4 text-2xl text-center font-headings">Orders</div>
+        <div class="my-4 text-2xl text-center font-headings">Inbox</div>
         <div class="container">
             <div class="flex flex-wrap justify-center gap-10">
-                <button class="btn" onclick="newOrderForm.showModal()">New Order</button>
+                <!-- <button class="btn" onclick="newOrderForm.showModal()">New Order</button>
                 <dialog id="newOrderForm" class="modal">
                     <div class="modal-box">
                         <form method="dialog">
@@ -39,14 +41,14 @@ const clearSearch = () => {
                         </form>
                         <NewOrderForm @submitForm="createOrder" />
                     </div>
-                </dialog>
+                </dialog> -->
 
-                <input v-model="ordersStore.searchQuery" @input="searchOrders" class="input input-bordered"
-                    placeholder="Search Orders" />
+                <input v-model="inboxStore.searchQuery" @input="searchInbox" class="input input-bordered"
+                    placeholder="Search Inbox" />
                 <button class="btn btn-circle btn-error" @click="clearSearch">X</button>
             </div>
             <div>
-                <OrderList :orders="ordersStore.filteredOrders" />
+                <InboxList :inbox="inboxStore.filteredInbox" />
             </div>
         </div>
     </DrawerLayout>

@@ -1,6 +1,6 @@
 export default [
     {
-        path: '/riders',
+        path: '/admin/riders',
         component: () => import('../Views/Riders.vue'),
         name: 'Riders',
 

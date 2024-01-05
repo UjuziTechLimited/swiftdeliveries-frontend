@@ -1,6 +1,6 @@
 export default [
     {
-        path: '/dashboard',
+        path: '/admin/dashboard',
         component: () => import('../Views/Dashboard.vue'),
         name: 'Dashboard',
         requiresAuth: true,

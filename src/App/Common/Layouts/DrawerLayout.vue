@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
-import { LayoutDashboard, Truck, Bike, BarChart3 } from 'lucide-vue-next'
+import { LayoutDashboard, Truck, Bike, BarChart3, Inbox } from 'lucide-vue-next'
 import AdminFooter from '@/App/Common/Components/AdminFooter.vue'
 
 import { themeChange } from 'theme-change';
@@ -96,6 +96,12 @@ onMounted(() => {
                     <RouterLink :to="{ name: 'Analytics' }" class="text-2xl font-bold font-headings">
                         <BarChart3 />
                         Analytics
+                    </RouterLink>
+                </li>
+                <li>
+                    <RouterLink :to="{ name: 'Inbox' }" class="text-2xl font-bold font-headings">
+                        <Inbox />
+                        Inbox
                     </RouterLink>
                 </li>
             </ul>

@@ -6,6 +6,7 @@
     "src/**/*.vue",
     "src/App/Modules/**/*",
     "src/assets/**/*",
+    "src/App/Common/**/*",
     "src/assets/images/DeliveryBoy.json",
   ],
   "exclude": [
