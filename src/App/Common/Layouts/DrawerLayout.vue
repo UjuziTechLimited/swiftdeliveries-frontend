@@ -6,40 +6,36 @@
     <div class="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <!--  -->
-        <div class="drawer-content">
-            <div class="flex justify-between p-2 m-2">
+        <div class="flex flex-col drawer-content">
+            <div class="flex justify-between p-2 m-2 lg:justify-end">
                 <label for="my-drawer-2" class=" btn btn-primary drawer-button lg:hidden">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7">
                         </path>
                     </svg>
                 </label>
-<<<<<<< HEAD
-                <div class="flex">
-                    
-=======
-                <div class="dropdown dropdown-end">
-                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                        <div class="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component"
-                                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <div class="flex ">
+                    <div class="dropdown dropdown-end">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                            <div class="w-10 rounded-full">
+                                <img alt="Tailwind CSS Navbar component"
+                                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
                         </div>
+                        <ul tabindex="0"
+                            class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                            <li>
+                                <a class="justify-between">
+                                    Profile
+                                    <span class="badge">New</span>
+                                </a>
+                            </li>
+                            <li><a>Settings</a></li>
+                            <li><a>Logout</a></li>
+                        </ul>
                     </div>
-                    <ul tabindex="0"
-                        class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                        <li>
-                            <a class="justify-between">
-                                Profile
-                                <span class="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
-                    </ul>
->>>>>>> 3015875 (added profile avatar)
                 </div>
             </div>
-
             <slot></slot>
 
         </div>
@@ -55,7 +51,8 @@
                 </div>
                 <!-- Sidebar content here -->
                 <li>
-                    <RouterLink :to="{ name: 'Dashboard' }" class="text-2xl font-bold font-headings">Dashboard </RouterLink>
+                    <RouterLink :to="{ name: 'Dashboard' }" class="text-2xl font-bold font-headings">Dashboard
+                    </RouterLink>
                 </li>
                 <li>
                     <RouterLink :to="{ name: 'Orders' }" class="text-2xl font-bold font-headings">Orders </RouterLink>
@@ -64,11 +61,13 @@
                     <RouterLink :to="{ name: 'Riders' }" class="text-2xl font-bold font-headings">Riders </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Analytics' }" class="text-2xl font-bold font-headings">Analytics </RouterLink>
+                    <RouterLink :to="{ name: 'Analytics' }" class="text-2xl font-bold font-headings">Analytics
+                    </RouterLink>
                 </li>
             </ul>
 
         </div>
+
     </div>
 </template>
 
