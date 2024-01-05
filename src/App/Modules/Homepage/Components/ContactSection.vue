@@ -1,3 +1,30 @@
+<!-- src/App/Modules/Homepage/Components/ContactSection.vue -->
+
+<script setup>
+import { ref } from 'vue';
+// import Swal from 'sweetalert2'
+
+import { useMessagesStore } from '@/stores/messagesStore';
+
+const messagesStore = useMessagesStore();
+
+const message = ref({
+    name: '',
+    email: '',
+    message: '',
+});
+
+
+// const emit = defineEmits(['submitForm']);
+
+const submitForm = (message) => {
+    //  emit('submitForm', order);
+    messagesStore.addMessage(message);
+};
+</script>
+
+
+
 <template>
     <div class="container mx-auto mb-6 snap-start" id="contact">
         <div class="p-4 m-4 text-center ">
@@ -8,13 +35,15 @@
                 <h1 class="text-3xl text-center font-content">Leave Us a message by filling in the form and we will get back
                     to you.</h1>
             </div>
-            <form class="px-8 pt-6 pb-8 mb-4 border-2 shadow-md bg-base-300 rounded-3xl">
+            <form @submit.prevent="submitForm(message)"
+                class="px-8 pt-6 pb-8 mb-4 border-2 shadow-md bg-base-300 rounded-3xl">
                 <div class="mb-4">
                     <label class="w-full form-control">
                         <div class="label">
                             <span class="label-text font-content">What is your name?</span>
                         </div>
-                        <input type="text" placeholder="John Doe" class="w-full input input-primary input-bordered" />
+                        <input v-model="message.name" type="text" placeholder="John Doe"
+                            class="w-full input input-primary input-bordered" />
                     </label>
                 </div>
                 <div class="mb-4">
@@ -22,34 +51,21 @@
                         <div class="label">
                             <span class="label-text font-content">What is your email?</span>
                         </div>
-                        <input type="text" placeholder="someone@example.com"
+                        <input v-model="message.email" type="text" placeholder="someone@example.com"
                             class="w-full input input-primary input-bordered" />
                     </label>
                 </div>
                 <div class="mb-4">
-                    <textarea class="w-full textarea textarea-lg textarea-primary" placeholder="Message"></textarea>
+                    <textarea v-model="message.message" class="w-full textarea textarea-lg textarea-primary"
+                        placeholder="Message"></textarea>
                 </div>
                 <div class="">
-                    <button class="font-bold btn btn-primary font-headings">Send</button>
+                    <button type="submit" class="font-bold btn btn-primary font-headings">Send</button>
                 </div>
             </form>
         </div>
     </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-const formData = ref({
-    name: '',
-    email: '',
-    message: '',
-});
-
-const submitForm = () => {
-    // Handle form submission logic
-    console.log('Form submitted:', formData.value);
-    // You can add your own logic for form submission here
-};
-</script>
 
 <style scoped></style>

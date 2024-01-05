@@ -1,10 +1,10 @@
 //src/stores/inboxStore.js
 import { defineStore } from 'pinia'
 
-export const useInboxStore = defineStore('inbox', {
+export const useMessagesStore = defineStore('messages', {
 
     state: () => ({
-        inbox: [
+        messages: [
             {
                 id: 1,
                 name: 'John Doe',
@@ -17,37 +17,45 @@ export const useInboxStore = defineStore('inbox', {
                 email: 'jane@doe.com',
                 message: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr',
             },
+            {
+                id: 3,
+                name: 'Jake Doe',
+                email: 'jane@doe.com',
+                message: 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr',
+            },
 
         ],
         searchQuery: '',
-        selectedInbox: null
+        selectedMessage: null
 
     }),
     getters: {
-        filteredInbox() {
-            return this.inbox.filter(inbox =>
-                inbox.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
+        filteredMessages() {
+            return this.messages.filter(message =>
+                message.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
         }
     },
     actions: {
-        // addOrder(order) {
-        //     order.id = this.orders.length + 1
-        //     this.orders.push(order)
-        // },
+        addMessage(message) {
+            message.id = this.messages.length + 1
+            this.messages.push(message)
+            console.log('Form submitted:', message);
+
+        },
 
         // selectOrderForEdit(order) {
         //     this.selectedInbox = { ...order }
         // },
         clearSelectedInbox() {
-            this.selectedInbox = null
+            this.selectedMessage = null
         },
         // toggleDeliveryStatus(orderId) {
         //     const index = this.orders.findIndex((order) => order.id === orderId);
         //     this.orders[index].deliveryStatus = !this.orders[index].deliveryStatus;
         // },
 
-        removeInbox(inbox) {
-            this.inbox.splice(this.inbox.indexOf(inbox), 1)
+        removeMessage(message) {
+            this.messages.splice(this.messages.indexOf(message), 1)
         },
         searchInbox(query) {
             //

@@ -99,9 +99,9 @@ onMounted(() => {
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Inbox' }" class="text-2xl font-bold font-headings">
+                    <RouterLink :to="{ name: 'Messages' }" class="text-2xl font-bold font-headings">
                         <Inbox />
-                        Inbox
+                        Messages
                     </RouterLink>
                 </li>
             </ul>

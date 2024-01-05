@@ -1,6 +1,6 @@
 export default [
     {
-        path: '/analytics',
+        path: '/admin/analytics',
         component: () => import('../Views/Analytics.vue'),
         name: 'Analytics',
 

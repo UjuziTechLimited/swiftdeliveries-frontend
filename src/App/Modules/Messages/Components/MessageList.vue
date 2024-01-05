@@ -1,20 +1,20 @@
-<!-- src/App/Modules/Orders/Components/InboxList.vue -->
+<!-- src/App/Modules/Orders/Components/MessageList.vue -->
 <script setup>
 import { computed, ref } from 'vue';
-import { useInboxStore } from '@/stores/inboxStore';
-import InboxDetails from './InboxDetails.vue';
+import { useMessagesStore } from '@/stores/messagesStore';
+import MessageDetails from './MessageDetails.vue';
 
-const inboxStore = useInboxStore();
+const messagesStore = useMessagesStore();
 
-const filteredInbox = computed(() => inboxStore.filteredInbox)
+const filteredMessages = computed(() => messagesStore.filteredMessages)
 
-const openDetailsModal = (inbox) => {
+const openDetailsModal = (message) => {
 
-    selectedInbox.value = inbox;
+    selectedMessage.value = message;
     details_modal.showModal();
 }
 
-const selectedInbox = ref(null);
+const selectedMessage = ref(null);
 
 </script>
 
@@ -31,26 +31,26 @@ const selectedInbox = ref(null);
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="inbox in filteredInbox" :key="inbox.id">
-                    <td class="px-4 py-2 border-t">{{ inbox.id }}</td>
-                    <td class="px-4 py-2 border-t">{{ inbox.name }}</td>
-                    <td class="px-4 py-2 border-t">{{ inbox.email }}</td>
-                    <td class="px-4 py-2 border-t">{{ inbox.message }}</td>
+                <tr v-for="message in filteredMessages" :key="message.id">
+                    <td class="px-4 py-2 border-t">{{ message.id }}</td>
+                    <td class="px-4 py-2 border-t">{{ message.name }}</td>
+                    <td class="px-4 py-2 border-t">{{ message.email }}</td>
+                    <td class="px-4 py-2 border-t">{{ message.message }}</td>
                     <td class="px-4 py-2 border-t">
 
 
                         <!-- View Order -->
-                        <button class="btn" @click="openDetailsModal(inbox)">View</button>
+                        <button class="btn" @click="openDetailsModal(message)">View</button>
                         <!-- onclick="details_modal.showModal()" -->
                         <dialog id="details_modal" class="modal">
                             <div class="modal-box">
                                 <form method="dialog">
                                     <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
                                 </form>
-                                <InboxDetails :inbox="selectedInbox" />
+                                <MessageDetails :message="selectedMessage" />
                             </div>
                         </dialog>
-                        <button class="m-2 btn btn-error" @click="inboxStore.removeInbox(inbox.id)">
+                        <button class="m-2 btn btn-error" @click="messagesStore.removeMessage(message.id)">
                             Delete
                         </button>
                     </td>

@@ -4,7 +4,7 @@ import OrdersRouter from './Modules/Orders/Router'
 import RidersRouter from './Modules/Riders/Router'
 import AuthenticationRouter from './Modules/Authentication/Router'
 import AnalyticsRouter from './Modules/Analytics/Router'
-import InboxRouter from './Modules/Inbox/Router'
+import MessagesRouter from './Modules/Messages/Router'
 import NotFound from './Common/Views/NotFound.vue'
 
 
@@ -15,7 +15,7 @@ export default [
     ...OrdersRouter,
     ...AuthenticationRouter,
     ...AnalyticsRouter,
-    ...InboxRouter,
+    ...MessagesRouter,
 
     // 404 PAGE
     {
