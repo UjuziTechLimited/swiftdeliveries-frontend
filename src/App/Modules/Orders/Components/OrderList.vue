@@ -41,6 +41,8 @@ const selectedOrder = ref(null);
                     <td class="px-4 py-2 border-t">{{ order.assignedRider }}</td>
                     <td class="px-4 py-2 border-t">{{ order.deliveryStatus }}</td>
                     <td class="px-4 py-2 border-t">
+
+
                         <!-- View Order -->
                         <button class="btn" @click="openDetailsModal(order)">View</button>
                         <!-- onclick="details_modal.showModal()" -->

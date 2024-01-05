@@ -1,7 +1,6 @@
 <!-- src/App/Modules/Orders/Components/OrderDetails.vue -->
 
 <script setup>
-import { defineProps } from 'vue';
 
 const props = defineProps(['order']);
 </script>

@@ -1,4 +1,5 @@
 <script setup>
+import { LayoutDashboard, Truck, Bike, BarChart3 } from 'lucide-vue-next';
 
 </script>
 
@@ -51,17 +52,27 @@
                 </div>
                 <!-- Sidebar content here -->
                 <li>
-                    <RouterLink :to="{ name: 'Dashboard' }" class="text-2xl font-bold font-headings">Dashboard
+                    <RouterLink :to="{ name: 'Dashboard' }" class="text-2xl font-bold font-headings">
+                        <LayoutDashboard />
+                        Dashboard
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Orders' }" class="text-2xl font-bold font-headings">Orders </RouterLink>
+                    <RouterLink :to="{ name: 'Orders' }" class="text-2xl font-bold font-headings">
+                        <Truck />
+                        Orders
+                    </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Riders' }" class="text-2xl font-bold font-headings">Riders </RouterLink>
+                    <RouterLink :to="{ name: 'Riders' }" class="text-2xl font-bold font-headings">
+                        <Bike />
+                        Riders
+                    </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Analytics' }" class="text-2xl font-bold font-headings">Analytics
+                    <RouterLink :to="{ name: 'Analytics' }" class="text-2xl font-bold font-headings">
+                        <BarChart3 />
+                        Analytics
                     </RouterLink>
                 </li>
             </ul>
