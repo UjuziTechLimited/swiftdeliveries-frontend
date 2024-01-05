@@ -10,7 +10,7 @@ const filteredRiders = computed(() => ridersStore.filteredRiders)
 
 <template>
     <div>
-        <table class="table">
+        <table class="table overflow-x-auto">
             <thead>
                 <tr>
                     <th class="font-bold font-headings">ID</th>

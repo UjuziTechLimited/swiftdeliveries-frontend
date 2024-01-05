@@ -3,16 +3,14 @@
 import { ref, computed } from 'vue';
 import DrawerLayout from '@/App/Common/Layouts/DrawerLayout.vue';
 import OrderList from '../Components/OrderList.vue';
-import NewOrder from '../Components/NewOrder.vue';
 
 import { useOrdersStore } from '@/stores/ordersStore';
+import NewOrderForm from '../Components/NewOrderForm.vue';
 
 const ordersStore = useOrdersStore();
 const searchQuery = ref('');
-const selectedOrder = ref(null);
 
 const createOrder = (order) => {
-
     ordersStore.addOrder(order);
 
 };
@@ -20,6 +18,7 @@ const clearSearch = () => {
     searchQuery.value = ''; // Clear the search box
     ordersStore.clearSearchResults(); // Clear the search results
 };
+
 const editOrder = (order) => {
     ordersStore.selectOrderForEdit(order);
     // Show the modal
@@ -31,25 +30,24 @@ const editOrder = (order) => {
     <DrawerLayout>
         <div class="my-4 text-2xl text-center font-headings">Orders</div>
         <div class="container">
-            <div class="flex flex-wrap justify-between sm:max-w-sm lg:mx-2 ">
-                <button class="btn" onclick="my_modal_3.showModal()">New Order</button>
-                <dialog id="my_modal_3" class="modal">
+            <div class="flex flex-wrap justify-center gap-10">
+                <button class="btn" onclick="newOrderForm.showModal()">New Order</button>
+                <dialog id="newOrderForm" class="modal">
                     <div class="modal-box">
                         <form method="dialog">
                             <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
                         </form>
-                        <NewOrder @submitForm="createOrder" />
+                        <NewOrderForm @submitForm="createOrder" />
                     </div>
                 </dialog>
-
 
                 <input v-model="ordersStore.searchQuery" @input="searchOrders" class="input input-bordered"
                     placeholder="Search Orders" />
                 <button class="btn btn-circle btn-error" @click="clearSearch">X</button>
             </div>
-             <div>
+            <div>
                 <OrderList :orders="ordersStore.filteredOrders" />
-            </div> 
+            </div>
         </div>
     </DrawerLayout>
 </template>

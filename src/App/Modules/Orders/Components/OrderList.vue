@@ -1,64 +1,73 @@
 <!-- src/App/Modules/Orders/Components/OrderList.vue -->
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useOrdersStore } from '@/stores/ordersStore';
-import EditOrder from './EditOrder.vue';
+import OrderDetails from './OrderDetails.vue';
 
 const ordersStore = useOrdersStore();
 
 const filteredOrders = computed(() => ordersStore.filteredOrders)
 
 
-// const editOrder = (order) => {
-//     ordersStore.selectOrderForEdit(order);
-//     // Trigger the modal for editing
-//     // ordersStore.showEditOrderModal();
-// };
 
+const openDetailsModal = (order) => {
+
+    selectedOrder.value = order;
+    details_modal.showModal();
+}
+
+const selectedOrder = ref(null);
 
 </script>
 
-
 <template>
-<div class="overflow-x-auto mx-2">
-    <table class="min-w-full table-auto">
-        <thead>
-            <tr>
-                <th class="px-4 py-2 font-bold">ID</th>
-                <th class="px-4 py-2 font-bold">Recipient Name</th>
-                <th class="px-4 py-2 font-bold">Delivery Type</th>
-                <th class="px-4 py-2 font-bold">Assigned Rider</th>
-                <th class="px-4 py-2 font-bold">Delivery Status</th>
-                <th class="px-4 py-2 font-bold">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="order in filteredOrders" :key="order.id">
-                <td class="border-t px-4 py-2">{{ order.id }}</td>
-                <td class="border-t px-4 py-2">{{ order.recipient.name }}</td>
-                <td class="border-t px-4 py-2">{{ order.orderType }}</td>
-                <td class="border-t px-4 py-2">{{ order.assignedRider }}</td>
-                <td class="border-t px-4 py-2">{{ order.deliveryStatus }}</td>
-                <td class="border-t px-4 py-2">
-                    <button class="m-2 btn btn-primary" @click="ordersStore.toggleDeliveryStatus(order.id)">
-                        Toggle Status
-                    </button>
-                    <button class="m-2 btn btn-error" @click="ordersStore.removeOrder(order.id)">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="mx-2 overflow-x-auto">
+        <table class="min-w-full table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 font-bold">ID</th>
+                    <th class="px-4 py-2 font-bold">Recipient Name</th>
+                    <th class="px-4 py-2 font-bold">Delivery Type</th>
+                    <th class="px-4 py-2 font-bold">Assigned Rider</th>
+                    <th class="px-4 py-2 font-bold">Delivery Status</th>
+                    <th class="px-4 py-2 font-bold">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="order in filteredOrders" :key="order.id">
+                    <td class="px-4 py-2 border-t">{{ order.id }}</td>
+                    <td class="px-4 py-2 border-t">{{ order.recipient.name }}</td>
+                    <td class="px-4 py-2 border-t">{{ order.orderType }}</td>
+                    <td class="px-4 py-2 border-t">{{ order.assignedRider }}</td>
+                    <td class="px-4 py-2 border-t">{{ order.deliveryStatus }}</td>
+                    <td class="px-4 py-2 border-t">
+                        <!-- View Order -->
+                        <button class="btn" @click="openDetailsModal(order)">View</button>
+                        <!-- onclick="details_modal.showModal()" -->
+                        <dialog id="details_modal" class="modal">
+                            <div class="modal-box">
+                                <form method="dialog">
+                                    <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
+                                </form>
+                                <OrderDetails :order="selectedOrder" />
+                            </div>
+                        </dialog>
 
+
+                        <button class="m-2 btn btn-primary" @click="ordersStore.toggleDeliveryStatus(order.id)">
+                            Toggle Status
+                        </button>
+                        <button class="m-2 btn btn-error" @click="ordersStore.removeOrder(order.id)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
-                        <!-- <button class="m-2 btn btn-primary" @click="markComplete(order)"
-                            :disabled="order.deliveryStatus !== 'Pending'">
-                            Complete</button> -->
-
-                        <!-- <button class="m-2 btn btn-error" @click="ordersStore.editOrder(order)">Edit</button> -->
+    
 
 
 

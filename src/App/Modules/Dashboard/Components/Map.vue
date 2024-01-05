@@ -42,8 +42,8 @@ onMounted(() => {
 
 <template>
     <!-- height: calc(100vh - 200px) /* calculate height of the screen minus the heading */ ; width: 100% -->
-    <div class="w-full h-screen ">
-        <div class="w-full h-full" ref="mapContainer"></div> <!-- width: 100% height: 100% -->
+    <div class="">
+        <div class="w-full h-96" ref="mapContainer"></div> <!-- width: 100% height: 100% -->
     </div>
 </template>
 

@@ -14,9 +14,19 @@ export const useOrdersStore = defineStore('orders', {
 
                 },
                 orderType: 'Package',
+                orderDescription: 'This is a package',
+                signatureRequired: true,
+                returnRequired: false,
+                deliveryInstructions: 'This is an instruction',
+                assignedRider: 'Rider 1',
+
                 deliveryStatus: true,
-                isAssigned: false,
-                assignedRider: 'Rider 1'
+                isAssigned: true,
+
+                datePlaced: '2021-01-01',
+                dateDelivered: '2021-01-02',
+                deliveryTime: '10:00 AM',
+
             },
             {
                 id: 2,
@@ -91,6 +101,13 @@ export const useOrdersStore = defineStore('orders', {
         },
         clearSearchResults() {
             this.searchQuery = ''
-        }
+        },
+        selectOrderForDetails(order) {
+            this.selectedOrderForDetails = { ...order };
+        },
+        clearSelectedOrderForDetails() {
+            this.selectedOrderForDetails = null;
+        },
+
     }
 })
