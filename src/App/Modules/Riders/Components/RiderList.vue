@@ -9,16 +9,16 @@ const filteredRiders = computed(() => ridersStore.filteredRiders)
 
 
 <template>
-    <div>
-        <table class="table overflow-x-auto">
+    <div class="mx-2 overflow-x-auto">
+        <table class="min-w-full table-auto ">
             <thead>
                 <tr>
-                    <th class="font-bold font-headings">ID</th>
-                    <th class="font-bold font-headings">Name</th>
-                    <th class="font-bold font-headings">Phone Number</th>
-                    <th class="font-bold font-headings">Account Status</th>
-                    <th class="font-bold font-headings">Assigned</th>
-                    <th class="font-bold font-headings">Actions</th>
+                    <th class="px-4 py-2 font-bold">ID</th>
+                    <th class="px-4 py-2 font-bold">Name</th>
+                    <th class="px-4 py-2 font-bold">Phone Number</th>
+                    <th class="px-4 py-2 font-bold">Account Status</th>
+                    <th class="px-4 py-2 font-bold">Assigned</th>
+                    <th class="px-4 py-2 font-bold">Actions</th>
                 </tr>
             </thead>
             <tbody>
