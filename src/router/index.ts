@@ -12,27 +12,27 @@ let routes: Array<RouteRecordRaw> = moduleRoutes
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    }
-    return { top: 0, behavior: 'smooth' }
-  }
+  // scrollBehavior(to, from, savedPosition) {
+  //   if (savedPosition) {
+  //     return savedPosition
+  //   }
+  //   return { top: 0, behavior: 'smooth' }
+  // }
 })
 
 
-router.beforeEach((to, from, next) => {
+// router.beforeEach((to, from, next) => {
 
-  const authStore = useAuthStore()
+//   const authStore = useAuthStore()
 
-  if (to.name === 'Dashboard' && !authStore.isAuthenticated) {
-    // if (!useAuthStore.isAuthenticated) {
-    next({ name: 'Login' });
-  } else {
-    next();
-  }
+//   if (to.name === 'Dashboard' && !authStore.authUser) {
+//     // if (!useAuthStore.isAuthenticated) {
+//     next({ name: 'Login' });
+//   } else {
+//     next();
+//   }
 
-})
+// })
 
 
 export default router

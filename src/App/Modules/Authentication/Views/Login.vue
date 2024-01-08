@@ -1,29 +1,49 @@
 <script setup>
 import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
 import { useAuthStore } from '@/stores/authStore';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import axios from 'axios';
 
 import router from '@/router';
 
 const authStore = useAuthStore();
 
+const form = ref({
+    email: '',
+    password: '',
+});
 
-const email = ref('');
-const password = ref('');
+
 
 const onLogin = async () => {
-    console.log('Login  button clicked')
-    console.log(authStore.token);
 
-    if (await authStore.login(email.value, password.value)) {
-        // Redirect to the dashboard on successful login
-        router.push('/dashboard');
-    } else {
-        // Handle failed login (show error message, etc.)
-        console.error('Invalid credentials');
-    }
+    console.log(form.value.email);
+    console.log(form.value.password);
+
+    await axios.get('/sanctum/csrf-cookie');
+    await axios.post('/login', {
+        email: form.value.email,
+        password: form.value.password,
+    })
+    router.push('/admin/dashboard');
+
+
+    // if (await authStore.login(email.value, password.value)) {
+    //     // Redirect to the dashboard on successful login
+    //     router.push('/dashboard');
+    // } else {
+    //     // Handle failed login (show error message, etc.)
+    //     console.error('Invalid credentials');
+    // }
 };
 
+
+// onMounted(async () => {
+//     console.log('Login page mounted');
+
+//     const data = await axios.get('/api/user')
+//     console.log(data)
+// });
 
 
 </script>
@@ -43,14 +63,14 @@ const onLogin = async () => {
                             <label class="label">
                                 <span class="label-text">Email</span>
                             </label>
-                            <input v-model="email" name="email" type="email" placeholder="someone@example.com"
+                            <input v-model="form.email" name="email" type="email" placeholder="someone@example.com"
                                 class="input input-bordered" required />
                         </div>
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Password</span>
                             </label>
-                            <input v-model="password" name="password" type="password" placeholder="password"
+                            <input v-model="form.password" name="password" type="password" placeholder="password"
                                 class="input input-bordered" required />
                             <label class="label">
                                 <a href="#" class="label-text-alt link link-hover">Forgot password?</a>

@@ -36,11 +36,11 @@ const selectedMessage = ref(null);
                     <td class="px-4 py-2 border-t">{{ message.name }}</td>
                     <td class="px-4 py-2 border-t">{{ message.email }}</td>
                     <td class="px-4 py-2 border-t">{{ message.message }}</td>
-                    <td class="px-4 py-2 border-t">
+                    <td class="flex px-4 py-2 border-t">
 
-
+                        <a :href="`mailto:${message.email}`" class="m-2 btn">Reply</a>
                         <!-- View Order -->
-                        <button class="btn" @click="openDetailsModal(message)">View</button>
+                        <button class="m-2 btn" @click="openDetailsModal(message)">View</button>
                         <!-- onclick="details_modal.showModal()" -->
                         <dialog id="details_modal" class="modal">
                             <div class="modal-box">

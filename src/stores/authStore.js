@@ -1,35 +1,48 @@
 import { defineStore } from 'pinia';
+import axios from 'axios';
 
 const TOKEN_EXPIRY_SECONDS = 3600; // Token expiration time in seconds (1 hour for example)
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
-        user: null,
-        token: null,
-        tokenExpiry: null,
+
+        authUser: null,
+
+        users: [
+            {
+                id: 1,
+                name: 'Admin',
+                email: 'admin@admin.com',
+                password: 'admin',
+                role: 'admin',
+
+            },
+            {
+                id: 2,
+                name: 'User',
+                email: 'user@user.com',
+                password: 'user',
+                role: 'user',
+            },
+        ]
 
     }),
+    getters: {
+        user: (state) => state.authUser,
+    },
 
     actions: {
         login(email, password) {
 
-            // Dummy authentication, replace with your actual authentication logic
-            if (email === 'admin@admin.com' && password === 'admin') {
-                // Set dummy user
-                this.user = { email: 'admin@admin.com', role: 'admin' };
-
-                // Generate a dummy token and set token expiry
-                const token = 'dummy_token'; // Replace with a proper token generation logic
-                const tokenExpiry = new Date(Date.now() + TOKEN_EXPIRY_SECONDS * 1000);
-
-                // Set token and token expiry in the state
-                this.token = token;
-                this.tokenExpiry = tokenExpiry;
 
 
+            // // Dummy authentication, replace with your actual authentication logic
+            // if (email === 'admin@admin.com' && password === 'admin') {
+            //     // Set dummy user
+            //     this.authUser = { email: 'admin@admin.com', role: 'admin' };
 
-                return true; // Successful login
-            }
+            //     return true; // Successful login
+            // }
 
             return false; // Failed login
         },

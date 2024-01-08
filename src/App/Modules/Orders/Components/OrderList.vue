@@ -25,12 +25,12 @@ const selectedOrder = ref(null);
         <table class="min-w-full table-auto">
             <thead>
                 <tr>
-                    <th class="px-4 py-2 font-bold">ID</th>
-                    <th class="px-4 py-2 font-bold">Recipient Name</th>
-                    <th class="px-4 py-2 font-bold">Delivery Type</th>
-                    <th class="px-4 py-2 font-bold">Assigned Rider</th>
-                    <th class="px-4 py-2 font-bold">Delivery Status</th>
-                    <th class="px-4 py-2 font-bold">Actions</th>
+                    <th class="font-bold font-headings">ID</th>
+                    <th class="font-bold font-headings">Recipient Name</th>
+                    <th class="font-bold font-headings">Delivery Type</th>
+                    <th class="font-bold font-headings">Assigned Rider</th>
+                    <th class="font-bold font-headings">Delivery Status</th>
+                    <th class="font-bold font-headings">Actions</th>
                 </tr>
             </thead>
             <tbody>
