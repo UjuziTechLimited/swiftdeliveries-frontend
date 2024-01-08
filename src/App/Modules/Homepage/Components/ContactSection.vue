@@ -43,7 +43,7 @@ const submitForm = (message) => {
                             <span class="label-text font-content">What is your name?</span>
                         </div>
                         <input v-model="message.name" type="text" placeholder="John Doe"
-                            class="w-full input input-primary input-bordered" />
+                            class="w-full input input-primary input-bordered" required />
                     </label>
                 </div>
                 <div class="mb-4">
@@ -51,13 +51,13 @@ const submitForm = (message) => {
                         <div class="label">
                             <span class="label-text font-content">What is your email?</span>
                         </div>
-                        <input v-model="message.email" type="text" placeholder="someone@example.com"
-                            class="w-full input input-primary input-bordered" />
+                        <input v-model="message.email" type="email" placeholder="someone@example.com"
+                            class="w-full input input-primary input-bordered" required />
                     </label>
                 </div>
                 <div class="mb-4">
                     <textarea v-model="message.message" class="w-full textarea textarea-lg textarea-primary"
-                        placeholder="Message"></textarea>
+                        placeholder="Message" required></textarea>
                 </div>
                 <div class="">
                     <button type="submit" class="font-bold btn btn-primary font-headings">Send</button>

@@ -39,7 +39,8 @@ export const useMessagesStore = defineStore('messages', {
         addMessage(message) {
             message.id = this.messages.length + 1
             this.messages.push(message)
-            console.log('Form submitted:', message);
+            // console.log('Form submitted:', message);
+            // console.log('Messages:', this.messages);
 
         },
 
