@@ -55,3 +55,4 @@ const editRider = (rider) => {
         </div>
     </DrawerLayout>
 </template>
+
