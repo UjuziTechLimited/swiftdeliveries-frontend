@@ -63,7 +63,9 @@ const upcoming_deliveries = computed(() => riderStore.filtereddeliveries)
 
 const opendetails = (request_id) => {
     // router.push({ name: 'RidersMapView', params: { id: request_id } })
+    // riderStore.deliveryid = request_id;
     router.push({ name: 'RidersMapView', params: { id: request_id } })
+
 
 }
 

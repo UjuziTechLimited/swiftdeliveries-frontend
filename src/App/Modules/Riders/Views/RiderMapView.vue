@@ -7,10 +7,12 @@
             </div>
 
             <div>
-                <div>
-                    <span>item_details</span>
-                    <span>{{ delivery_details.request_id }}</span>
+                <div class="flex flex-row ">
+                    <span class="text-lg ">item_details</span>
+                    <span>{{ delivery_details.item_details }}</span>
             </div>
+
+            
             </div>
 
 
@@ -24,18 +26,24 @@
 
     import RiderMap from "../Components/RiderMap.vue"
     import { useRidersStore } from "@/stores/ridersStore";
+  
  
     import router from '@/router'
 
-    const delivery_id = router.params.id
 
-    const riderStore = useRidersStore()
+    const deliveryid=router.params.id
+    console.log(deliveryid.value)
+ 
 
-    const delivery_details = riderStore.getDeliveryDetails(delivery_id)
+    // const riderStore = useRidersStore()
+    // // const delivery_id =riderStore.deliveryid
+
+    // const delivery_details = riderStore.getdelivery
+
 
 
 
 
 </script>
 
-    <style></style>
+    <style scoped ></style>
