@@ -10,5 +10,12 @@ export default [
         component: () => import('../Views/RidersDashboard.vue'),
         name: 'RidersDashboard',
 
-    }
+    },
+
+    {
+        path: '/delivery/view/details/:id',
+        component: () => import('../Views/RiderMapView.vue'),
+        name: 'RidersMapView',
+
+    },
 ]
