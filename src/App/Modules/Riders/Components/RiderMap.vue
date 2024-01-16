@@ -1,7 +1,7 @@
 <script setup>
 import { shallowRef, onMounted, onUnmounted, markRaw } from 'vue';
 
-import { Map, MapStyle, Marker, config } from '@maptiler/sdk';
+import { Map, MapStyle, Marker, config, P } from '@maptiler/sdk';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
 import * as maptilersdk from '@maptiler/sdk';
 
@@ -14,20 +14,25 @@ const map = shallowRef(null);
 onMounted(() => {
     config.apiKey = import.meta.env.VITE_MAPTILER_API_KEY;
 
-    // const initialState = { lng: 36.8189302, lat: -1.2731758, zoom: 10 };
+    const initialState = { lng: 36.8189302, lat: -1.2731758, zoom: 7 };
 
     map.value = markRaw(new Map({
         container: mapContainer.value,
         style: MapStyle.STREETS,
         geolocate: maptilersdk.GeolocationType.POINT, // center map based on visitor’s location
-        navigationControl: false //disable the navigation control
-        // center: [initialState.lng, initialState.lat],
-        // zoom: initialState.zoom
+        navigationControl: true, //disable the navigation control
+        center: [initialState.lng, initialState.lat],
+        zoom: initialState.zoom
     }));
 
-    // new Marker({ color: "#FF0000" })
-    //     .setLngLat([36.8189302, -1.2731758])
-    //     .addTo(map.value);
+    new Marker({ color: "#FF0000" })
+        .setLngLat([36.8189302, -1.2731758])
+        .addTo(map.value);
+
+
+    new Marker({ color: "#0000FF"}).setLngLat([35.8189302, -1.2731758]).addTo(map.value);
+
+ 
 
 
 
