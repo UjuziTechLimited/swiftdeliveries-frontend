@@ -18,4 +18,12 @@ export default [
         name: 'RidersMapView',
 
     },
+
+    {
+        path: '/signature',
+        component: () => import('../Views/RiderSignature.vue'),
+        name: 'RiderSignature',
+
+    },
+
 ]

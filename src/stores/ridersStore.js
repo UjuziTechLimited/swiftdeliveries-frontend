@@ -346,7 +346,7 @@ export const useRidersStore = defineStore('riders', {
         }],
         searchQuery: '',
         selectedRider: null,
-        deliveryid: '',
+        selected_delivery_id: '99A24J2s',
     }),
     getters: {
         filteredRiders() {
@@ -359,9 +359,20 @@ export const useRidersStore = defineStore('riders', {
             )
 
         },
+
+        filtered_ongoing_deliveries() {
+            return this.deliveries.filter(delivery =>
+                delivery.delivery_status === "transit"
+            )
+
+        },
+
+        
         getdelivery() {
-            return this.deliveries.find(delivery => delivery.request_id === this.deliveryid)
+            return this.deliveries.find(delivery => delivery.request_id === this.selected_delivery_id)
         }
+
+
 
     },
     actions: {
