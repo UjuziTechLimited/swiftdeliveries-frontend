@@ -21,18 +21,17 @@ const router = createRouter({
 })
 
 
-// router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
 
-//   const authStore = useAuthStore()
+  const authStore = useAuthStore()
 
-//   if (to.name === 'Dashboard' && !authStore.authUser) {
-//     // if (!useAuthStore.isAuthenticated) {
-//     next({ name: 'Login' });
-//   } else {
-//     next();
-//   }
+  if (to.name === 'Dashboard' && !authStore.authUser) {
+    next({ name: 'Login' });
+  } else {
+    next();
+  }
 
-// })
+})
 
 
 export default router

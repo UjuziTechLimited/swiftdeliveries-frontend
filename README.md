@@ -1,46 +1,41 @@
-# swift-deliveries-frontend
+# Swift Deliveries App
 
-This template should help get you started developing with Vue 3 in Vite.
+Swift Deliveries is a web application designed to streamline the order management and delivery tracking process. It provides a user-friendly interface for managing orders, tracking deliveries, and maintaining a record of essential information related to each order.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- **Order Management:** Add, edit, and delete orders with recipient details, delivery types, and assigned riders.
+- **Delivery Tracking:** Track the status of deliveries with options to toggle delivery status.
+- **Search Functionality:** Easily search for orders by recipient name.
+- **Responsive Design:** Ensures a seamless user experience on various devices.
 
-## Type Support for `.vue` Imports in TS
+## Technologies Used
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- **Vue.js:** Frontend framework for building the user interface.
+- **Tailwind CSS:** Utility-first CSS framework for styling.
+- **Pinia:** State management library for Vue.js.
+- **Laravel:** Backend framework for handling server-side logic.
+- **MapTiler:** Integration for displaying maps and geolocation services.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Setup
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/realcapobambino/swift-deliveries-frontend.git
+   cd swift-deliveries-frontend
 
-## Customize configuration
+2. **Install Dependencies:**
+     ```bash
+     bun install
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+3. **Configure Environment:**
+    Set up your Laravel environment variables and configure the database.
+    Add the MapTiler API key to the Vue.js environment.
 
-## Project Setup
+4. **Run the Application:**
+    ```bash
+     bun run dev --host
 
-```sh
-npm install
-```
+**Contributing**
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
+Contributions are welcome! If you find any issues or have suggestions, feel free to open an issue or create a pull request

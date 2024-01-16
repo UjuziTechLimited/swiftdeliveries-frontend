@@ -2,9 +2,9 @@
 import MainLayout from '@/App/Common/Layouts/MainLayout.vue';
 import { useAuthStore } from '@/stores/authStore';
 import { onMounted, ref } from 'vue';
-import axios from 'axios';
 
 import router from '@/router';
+// import { LogIn } from 'lucide-vue-next';
 
 const authStore = useAuthStore();
 
@@ -12,38 +12,17 @@ const form = ref({
     email: '',
     password: '',
 });
+// const error = ref('');
 
 
 
 const onLogin = async () => {
-
-    console.log(form.value.email);
-    console.log(form.value.password);
-
-    await axios.get('/sanctum/csrf-cookie');
-    await axios.post('/login', {
-        email: form.value.email,
-        password: form.value.password,
-    })
-    router.push('/admin/dashboard');
-
-
-    // if (await authStore.login(email.value, password.value)) {
-    //     // Redirect to the dashboard on successful login
-    //     router.push('/dashboard');
-    // } else {
-    //     // Handle failed login (show error message, etc.)
-    //     console.error('Invalid credentials');
-    // }
+    if (await authStore.login(form.value.email, form.value.password)) {
+        router.push('/admin/dashboard');
+    } else {
+        console.error('Invalid credentials');
+    }
 };
-
-
-// onMounted(async () => {
-//     console.log('Login page mounted');
-
-//     const data = await axios.get('/api/user')
-//     console.log(data)
-// });
 
 
 </script>
@@ -87,4 +66,9 @@ const onLogin = async () => {
 </template>
 
 
-<style scoped></style>
+<style scoped>
+
+
+
+
+</style>
