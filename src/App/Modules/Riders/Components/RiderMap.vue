@@ -1,7 +1,7 @@
 <script setup>
 import { shallowRef, onMounted, onUnmounted, markRaw } from 'vue';
 
-import { Map, MapStyle, Marker, config, P } from '@maptiler/sdk';
+import { Map, MapStyle, Marker, config } from '@maptiler/sdk';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
 import * as maptilersdk from '@maptiler/sdk';
 
