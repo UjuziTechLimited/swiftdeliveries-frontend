@@ -6,7 +6,7 @@ export default [
 
     },
     {
-        path: '/riderdashboard',
+        path: '/rider/dashboard',
         component: () => import('../Views/RidersDashboard.vue'),
         name: 'RidersDashboard',
 
