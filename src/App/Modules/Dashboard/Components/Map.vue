@@ -14,7 +14,6 @@ const map = shallowRef(null);
 onMounted(() => {
     config.apiKey = import.meta.env.VITE_MAPTILER_API_KEY;
 
-    // const initialState = { lng: 36.8189302, lat: -1.2731758, zoom: 10 };
 
     map.value = markRaw(new Map({
         container: mapContainer.value,
@@ -28,15 +27,10 @@ onMounted(() => {
     // new Marker({ color: "#FF0000" })
     //     .setLngLat([36.8189302, -1.2731758])
     //     .addTo(map.value);
-
-
-
 }),
     onUnmounted(() => {
         map.value?.remove();
     })
-
-
 </script>
 
 

@@ -1,9 +1,9 @@
 <script setup>
 import { onMounted } from 'vue'
-import { LayoutDashboard, Truck, Bike, BarChart3, Inbox, Home, Car} from 'lucide-vue-next'
+import { LayoutDashboard, Truck, Bike, BarChart3, Inbox, Home, Car } from 'lucide-vue-next'
 import AdminFooter from '@/App/Common/Components/AdminFooter.vue'
 import ThemeChange from '../Components/ThemeChange.vue';
-import Logout from '../Components/Logout.vue';
+import ProfileAvatar from '../Components/ProfileAvatar.vue';
 
 import { themeChange } from 'theme-change';
 
@@ -29,14 +29,14 @@ onMounted(() => {
 
 
                 <div class="flex">
-                   <ThemeChange />
-                    <Logout />
+                    <ThemeChange />
+                    <ProfileAvatar />
                 </div>
             </div>
             <slot></slot>
 
         </div>
-        <div class="drawer-side">
+        <div class=" drawer-side">
             <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
             <ul class="min-h-full p-4 menu w-80 bg-base-200 text-base-content">
                 <div class="flex my-4">

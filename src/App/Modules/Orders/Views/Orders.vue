@@ -5,15 +5,15 @@ import DrawerLayout from '@/App/Common/Layouts/DrawerLayout.vue';
 import OrderList from '../Components/OrderList.vue';
 
 import { useOrdersStore } from '@/stores/ordersStore';
-import NewOrderForm from '../Components/NewOrderForm.vue';
+// import NewOrderForm from '../Components/NewOrderForm.vue';
 
 const ordersStore = useOrdersStore();
 const searchQuery = ref('');
 
-const createOrder = (order) => {
-    ordersStore.addOrder(order);
+// const createOrder = (order) => {
+//     ordersStore.addOrder(order);
 
-};
+// };
 const clearSearch = () => {
     searchQuery.value = ''; // Clear the search box
     ordersStore.clearSearchResults(); // Clear the search results
@@ -30,8 +30,8 @@ const clearSearch = () => {
     <DrawerLayout>
         <div class="my-4 text-2xl text-center font-headings">Orders</div>
         <div class="container">
-            <div class="flex flex-wrap justify-center gap-10">
-                <button class="btn" onclick="newOrderForm.showModal()">New Order</button>
+            <div class="flex flex-wrap justify-center gap-10 m-2">
+                <!-- <button class="btn" onclick="newOrderForm.showModal()">New Order</button>
                 <dialog id="newOrderForm" class="modal">
                     <div class="modal-box">
                         <form method="dialog">
@@ -39,7 +39,7 @@ const clearSearch = () => {
                         </form>
                         <NewOrderForm @submitForm="createOrder" />
                     </div>
-                </dialog>
+                </dialog> -->
 
                 <input v-model="ordersStore.searchQuery" @input="searchOrders" class="input input-bordered"
                     placeholder="Search Orders" />

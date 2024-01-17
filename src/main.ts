@@ -11,6 +11,8 @@ import Vue3Lottie from 'vue3-lottie'
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+import "leaflet/dist/leaflet.css";
+
 const pinia = createPinia()
 
 const app = createApp(App)

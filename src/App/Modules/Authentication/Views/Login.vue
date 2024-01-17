@@ -21,6 +21,7 @@ const onLogin = async () => {
         router.push('/admin/dashboard');
     } else {
         console.error('Invalid credentials');
+        alert('Invalid credentials');
     }
 };
 
@@ -66,9 +67,4 @@ const onLogin = async () => {
 </template>
 
 
-<style scoped>
-
-
-
-
-</style>
+<style scoped></style>

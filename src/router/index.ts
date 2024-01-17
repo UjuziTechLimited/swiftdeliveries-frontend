@@ -23,7 +23,8 @@ router.beforeEach((to, from, next) => {
 
   const authStore = useAuthStore()
 
-  if (to.name === 'Dashboard' && !authStore.authUser) {
+
+  if (to.path.startsWith('/admin/') && !authStore.authUser) {
     next({ name: 'Login' });
   } else {
     next();

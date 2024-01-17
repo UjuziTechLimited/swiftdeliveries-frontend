@@ -13,11 +13,7 @@ const onLogout = async () => {
     }
 
 }
-
-
 </script>
-
-
 
 <template>
     <div class="dropdown dropdown-end">
