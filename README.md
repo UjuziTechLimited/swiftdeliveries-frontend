@@ -15,7 +15,7 @@ Swift Deliveries is a web application designed to streamline the order managemen
 - **Tailwind CSS:** Utility-first CSS framework for styling.
 - **Pinia:** State management library for Vue.js.
 - **Laravel:** Backend framework for handling server-side logic.
-- **MapTiler:** Integration for displaying maps and geolocation services.
+- **Google Maps:** Integration for displaying maps and geolocation services.
 
 ## Setup
 
