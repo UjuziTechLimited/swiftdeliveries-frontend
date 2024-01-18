@@ -1,6 +1,6 @@
 # Swift Deliveries App
 
-Swift Deliveries is a web application designed to streamline the order management and delivery tracking process. It provides a user-friendly interface for managing orders, tracking deliveries, and maintaining a record of essential information related to each order.
+Swift Deliveries is a platform designed to streamline the order management and delivery tracking process. It provides a user-friendly interface for managing orders, tracking deliveries, and maintaining a record of essential information related to each order.
 
 ## Features
 
