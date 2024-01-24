@@ -6,6 +6,7 @@ import HeroSection from '../Components/HeroSection.vue';
 import FeaturesSection from '../Components/FeaturesSection.vue';
 import TestimonialsSection from '../Components/TestimonialsSection.vue';
 import ContactSection from '../Components/ContactSection.vue';
+import FaqSection from '../Components/FaqSection.vue';
 
 
 </script>
@@ -17,6 +18,7 @@ import ContactSection from '../Components/ContactSection.vue';
             <FeaturesSection></FeaturesSection>
             <TestimonialsSection></TestimonialsSection>
             <ContactSection></ContactSection>
+            <FaqSection></FaqSection>
         </MainLayout>
     </div>
 </template>

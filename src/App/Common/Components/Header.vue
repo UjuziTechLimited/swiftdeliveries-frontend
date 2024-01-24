@@ -9,12 +9,12 @@ onMounted(() => {
 });
 
 
-const scrollToComponent = (componentId) => {
-    const element = document.getElementById(componentId);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
-};
+// const scrollToComponent = (componentId) => {
+//     const element = document.getElementById(componentId);
+//     if (element) {
+//         element.scrollIntoView({ behavior: 'smooth' });
+//     }
+// };
 
 
 </script>
@@ -23,34 +23,22 @@ const scrollToComponent = (componentId) => {
     <div class="mx-auto duration-300 ease-in-out lg:container">
         <div class="w-full px-4 my-2 navbar ">
             <div class="navbar-start">
-                <img src="@/assets/images/logo.png" alt="ujuzitech logo" class="w-12 h-12 cursor-pointer">
-                <RouterLink :to="{ name: 'Homepage' }" class="p-2 text-2xl lowercase xl:text-4xl font-ArtStyle ">
+                <img src="@/assets/images/logo.png" alt="ujuzitech logo" class="w-5 h-5 cursor-pointer">
+                <RouterLink :to="{ name: 'Homepage' }"
+                    class="p-2 text-xl font-extrabold lowercase md:text-4xl font-headings ">
                     SwiftDeliveries
                 </RouterLink>
             </div>
-            <div class="hidden navbar-center lg:flex">
-                <ul class="px-1 menu menu-horizontal">
-                    <li>
-                        <RouterLink :to="{ name: 'Dashboard' }" class="text-2xl font-bold font-headings">Platform
-                        </RouterLink>
-                    </li>
-                    <li>
-                        <details>
-                            <summary class="text-2xl font-bold font-headings">About</summary>
-                            <ul class="p-2">
-                                <li><a @click="scrollToComponent('features')" type="button"
-                                        class="text-xl font-bold font-content">Features</a></li>
-                                <li><a @click="scrollToComponent('testimonials')" type="button"
-                                        class="text-xl font-bold font-content">Testimonials</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li><a @click="scrollToComponent('contact')" type="button"
-                            class="text-2xl font-bold font-headings">Contact Us</a></li>
-                </ul>
-            </div>
+
 
             <div class="navbar-end">
+                <ul class="menu menu-horizontal">
+                    <li>
+                        <RouterLink :to="{ name: 'Dashboard' }" class="text-xl font-bold font-headings">Login
+                        </RouterLink>
+                    </li>
+                </ul>
+
                 <label class="p-2 rounded-full swap swap-rotate hover:bg-base-300">
                     <!-- this hidden checkbox controls the state -->
                     <input data-toggle-theme="dark,light" data-act-class="light" type="checkbox" class="theme-controller"
@@ -67,7 +55,7 @@ const scrollToComponent = (componentId) => {
                     </svg>
                 </label>
 
-                <div class="dropdown dropdown-end ">
+                <!-- <div class="dropdown dropdown-end ">
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -93,7 +81,7 @@ const scrollToComponent = (componentId) => {
                                 class="text-2xl font-bold font-headings">Contact
                                 Us</a></li>
                     </ul>
-                </div>
+                </div> -->
 
             </div>
         </div>

@@ -32,8 +32,9 @@ const submitForm = (message) => {
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 ">
             <div class="items-center p-4 mx-4 my-auto">
-                <h1 class="text-3xl text-center font-content">Leave Us a message by filling in the form and we will get back
-                    to you.</h1>
+                <h1 class="text-3xl text-center font-content">Have questions or ready to get started with Swift Deliveries?
+                    Leave us a message by filling in the form, and we'll get back to you promptly. Feel free to explore how
+                    Swift Deliveries can enhance your delivery operations.</h1>
             </div>
             <form @submit.prevent="submitForm(message)"
                 class="px-8 pt-6 pb-8 mb-4 border-2 shadow-md bg-base-300 rounded-3xl">
