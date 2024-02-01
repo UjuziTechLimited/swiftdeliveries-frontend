@@ -23,7 +23,7 @@ const clearSearch = () => {
     ridersStore.clearSearchResults(); // Clear the search results
 };
 const editRider = (rider) => {
-    ridersStore.selectRiderForEditt(rider);
+    ridersStore.selectRiderForEdit(rider);
     // Show the modal
     my_modal_3.showModal();
 };

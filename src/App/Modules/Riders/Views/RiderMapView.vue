@@ -36,6 +36,8 @@
                     <span>{{ delivery_details.delivery_type }}</span>
                 </div>
 
+                
+
 
                 <div class="flex flex-col ">
                     <span class="text-lg ">Date</span>
