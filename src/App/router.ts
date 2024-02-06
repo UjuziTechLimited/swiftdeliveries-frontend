@@ -5,6 +5,7 @@ import RidersRouter from './Modules/Riders/Router'
 import AuthenticationRouter from './Modules/Authentication/Router'
 import AnalyticsRouter from './Modules/Analytics/Router'
 import MessagesRouter from './Modules/Messages/Router'
+import MapRouter from './Modules/Map/Router'
 import NotFound from './Common/Views/NotFound.vue'
 
 
@@ -16,6 +17,7 @@ export default [
     ...AuthenticationRouter,
     ...AnalyticsRouter,
     ...MessagesRouter,
+    ...MapRouter,
 
     // 404 PAGE
     {

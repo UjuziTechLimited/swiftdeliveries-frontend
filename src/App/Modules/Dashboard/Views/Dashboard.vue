@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import DrawerLayout from '../../../Common/Layouts/DrawerLayout.vue';
 // import Map from '../Components/Map.vue';
 import LeafletMap from '../Components/LeafletMap.vue';
+// import GoogleMap from '../Components/GoogleMap.vue'
 import NewOrderForm from '@/App/Modules/Orders/Components/NewOrderForm.vue';
 import { useOrdersStore } from '@/stores/ordersStore';
 
@@ -26,6 +27,7 @@ const createOrder = (order) => {
             <div class="h-96">
                 <!-- <Map /> -->
                 <LeafletMap />
+                <!-- <GoogleMap /> -->
             </div>
             <div class="grid w-full grid-rows-3 gap-5 p-4 rounded-t-3xl bg-base-200">
                 <div class="p-2 m-2">
