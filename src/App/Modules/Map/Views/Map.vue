@@ -2,7 +2,7 @@
   <DrawerLayout>
     <div class="max-h-screen">
       <div class="h-96 ">
-        <GoogleMap :marker="to_form_markers"/>
+        <GoogleMap :marker="to_form_markers" :marker_transition="marker_update"/>
       </div>
 
       <div class="grid w-full grid-rows-3 gap-5 p-4 rounded-t-3xl bg-base-200">
@@ -34,6 +34,7 @@ import { useMapStore } from '@/stores/mapStore';
 const mapstore = useMapStore();
 
 const to_form_markers = ref({})
+const marker_update = ref(true)
 
 
 // Set the location based on the place selected
@@ -41,7 +42,7 @@ const to_form_markers = ref({})
 const setPlace = (place) => {
   const marker_id = ref(Math.random());
 
-  console.log(place)
+  // console.log(place)
   const coords = ref({ lat: 0, lng: 0 })
   coords.value.lat = place.geometry.location.lat();
   coords.value.lng = place.geometry.location.lng();
@@ -65,6 +66,7 @@ const setPlace = (place) => {
 
 
   mapstore.addmarker(to_form_markers.value)
+  marker_update.value = !marker_update.value
   
 
 };

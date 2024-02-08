@@ -1,6 +1,6 @@
 <template>
     <div class="h-96">
-        <GMapMap :center="coords" :zoom="10" map-type-id="terrain" style="width: 79vw; height: 25rem" :options="{
+        <GMapMap :center="coords" :zoom="15" map-type-id="terrain" style="width: 79vw; height: 25rem" :options="{
             zoomControl: true,
             mapTypeControl: true,
             scaleControl: true,
@@ -11,72 +11,84 @@
 
 
 
-        <GMapMarker
-          v-for="mymarker in markers"
-          :key="mymarker.id"
-          :position="marker.position"
-          :clickable="true"
-          :draggable="true"
-          
-      >
+<GMapPolyline :path="path" ref="polyline" />
+
+             <GMapCluster >
+
+        
+
+                <GMapMarker v-for="mymarker in markers" :key="mymarker.id" :position="mymarker.position" :clickable="true"
+                    :draggable="false">
+    
 
 
-            <!-- <GMapInfoWindow
-              v-if="locationDetails.address != ''"
-              :closeclick="true"
-              @closeclick="openMarker(null)"
-              :opened="openedMarkerID === markerDetails.id"
-              :options="{
-                pixelOffset: {
-                  width: 10,
-                  height: 0
-                },
-                maxWidth: 320,
-                maxHeight: 320
-              }"
-  
-            >
-              <div class="location-details">
-                  <p> Added Info </p>
-              </div>
-            </GMapInfoWindow> -->
 
-
-            </GMapMarker> 
+                </GMapMarker>
+            </GMapCluster> 
 
         </GMapMap>
 
     </div>
-</template>
+</template> 
   
 <script setup>
 
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch, toRefs, watchEffect } from "vue";
 import { useMapStore } from "@/stores/mapStore";
 
+const mapStore = useMapStore;
+
 const props = defineProps({
-    marker: {}
+    marker_transition : Boolean,
+    marker:{}
 })
 
+const coords = ref({ lat: 1.38, lng: 103.8 });
 
+const path = ref([  
+  
+        ])
+
+
+
+const demomarkers = ref( [
+          {
+            position: {
+              lat: 0.093048,
+              lng: 36.84212,
+            },
+          },
+          {
+            position: {
+              lat: 0.093048,
+              lng: 37.84212,
+            },
+          }
+        ])
+
+
+const { marker_transition } = toRefs(props)
 
 const markers = ref([])
-markers.value.push(props.marker)
+
+// markers.value.push(props.marker)
+
+watch(marker_transition, async () => {
+
+    markers.value.push(props.marker)
+    coords.value.lat = props.marker.position.lat
+    coords.value.lng = props.marker.position.lng
+    path.value.push(coords.value)
+    console.log(path.value)
+
+    // console.log(mymarker)
+}
+    )
 
 
-console.log(markers.value)
 
 
-// markers.value = useMapStore.markerarray
 
-// const markers = useMapStore.markerarray
-const coords = ref({ lat: 0.5072, lng: 36.1276 });
-
-// Marker Details
-//   const markerDetails = ref({
-//     id: "1",
-//     position: coords
-//   });
 
 
 

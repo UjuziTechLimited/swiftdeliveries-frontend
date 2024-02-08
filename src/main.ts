@@ -13,8 +13,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 import "leaflet/dist/leaflet.css";
-import VueGoogleMaps from '@fawmi/vue-google-maps';
-
+import VueGoogleMaps from 'vue-google-maps-community-fork';
 
 
 const pinia = createPinia()
