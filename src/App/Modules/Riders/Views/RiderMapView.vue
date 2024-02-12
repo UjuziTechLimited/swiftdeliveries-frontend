@@ -3,7 +3,7 @@
 
         <div class="max-h-screen mx-4">
             <div class="h-96">
-                <RiderMap />
+                <RiderGoogleMap/>
             </div>
 
             <div class="grid grid-cols-3 gap-3">
@@ -70,6 +70,7 @@
 <script setup>
 
 import RiderMap from "../Components/RiderMap.vue"
+import RiderGoogleMap from "../Components/RiderGoogleMap.vue"
 import { useRidersStore } from "@/stores/ridersStore";
 import { computed  } from "vue";
 import router from '@/router'

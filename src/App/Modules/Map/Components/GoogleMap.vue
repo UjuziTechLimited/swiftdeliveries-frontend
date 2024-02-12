@@ -11,7 +11,7 @@
 
 
 
-<GMapPolyline :path="path" ref="polyline" />
+
 
              <GMapCluster >
 
@@ -45,9 +45,6 @@ const props = defineProps({
 
 const coords = ref({ lat: 1.38, lng: 103.8 });
 
-const path = ref([  
-  
-        ])
 
 
 
@@ -78,9 +75,6 @@ watch(marker_transition, async () => {
     markers.value.push(props.marker)
     coords.value.lat = props.marker.position.lat
     coords.value.lng = props.marker.position.lng
-    path.value.push(coords.value)
-    console.log(path.value)
-
     // console.log(mymarker)
 }
     )
