@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import axios from '@/services/axios';
+import axios from 'axios'
 
 export const useMapStore = defineStore('map', {
   state: () => ({
@@ -34,14 +34,13 @@ export const useMapStore = defineStore('map', {
 
       await axios.get('/',
         {
-          data: {
-            start_location: "-1.2253995,36.8976372",
-            end_location: "-1.2268966,36.9252782"
-          }
+           start_location : "-1.2253995,36.8976372",
+            end_location : "-1.2268966,36.9252782"
+            
         }
       ).then((response) => {
         this.directions = response.data
-        console.log("success")
+        console.log(response.data)
       }).catch((error) => {
         console.log(error)
       })
