@@ -26,7 +26,7 @@ import { RouterLink } from 'vue-router'
                 <div class="">
                     <RouterLink :to="{ name: 'Dashboard' }" class="my-2 btn btn-block btn-neutral">Login
                     </RouterLink>
-                    <button class="my-2 btn btn-block btn-primary">Book Demo</button>
+                    <a href="mailto:info@ujuzitech.com" class="my-2 btn btn-block btn-primary">Book Demo</a>
                 </div>
 
             </div>
