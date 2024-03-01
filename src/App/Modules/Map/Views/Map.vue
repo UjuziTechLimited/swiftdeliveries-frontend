@@ -2,7 +2,7 @@
   <DrawerLayout>
     <div class="max-h-screen">
       <div class="h-96 ">
-        <GoogleMap :marker="to_form_markers" :marker_transition="marker_update"/>
+        <GoogleMap :marker="to_form_markers" :marker_transition="marker_update" />
       </div>
 
       <div class="grid w-full grid-rows-3 gap-5 p-4 rounded-t-3xl bg-base-200">
@@ -18,7 +18,7 @@
           </GMapAutocomplete>
         </div>
         <button class="btn btn-block bg-primary" onclick="newOrderForm.showModal()">Confirm Order</button>
-        <button class="btn btn-block bg-secondary" @click="updatedirections" >Go to Rider</button>
+        <button class="btn btn-block bg-secondary" @click="updatedirections">Go to Rider</button>
 
       </div>
 
@@ -31,7 +31,7 @@ import GoogleMap from '../Components/GoogleMap.vue'
 import DrawerLayout from '../../../Common/Layouts/DrawerLayout.vue';
 import { ref } from 'vue';
 import { useMapStore } from '@/stores/mapStore';
-import router  from '@/router';
+import router from '@/router';
 
 const mapstore = useMapStore();
 
@@ -63,18 +63,14 @@ const setPlace = (place) => {
     'position': coords.value,
     'address': place.formatted_address,
     'url': place.url
-
   }
-
-
   mapstore.addmarker(to_form_markers.value)
   marker_update.value = !marker_update.value
-  
 
 };
 
 
-const updatedirections = async() => {
+const updatedirections = async () => {
   await mapstore.getdirections()
 
   router.push({ name: 'RidersMapView', params: { id: "54we" } })

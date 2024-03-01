@@ -7,20 +7,11 @@
             streetViewControl: true,
             rotateControl: true,
             fullscreenControl: true,
-        }" 
-        >
+        }">
             <GMapPolyline :path="rider_path" ref="polyline" />
             <GMapCluster>
-
-
-                
-
-                <GMapMarker v-for="mymarker in rider_markers" :key="mymarker.id" :position="mymarker.position" :clickable="true"
-                    :draggable="false">
-
-
-
-
+                <GMapMarker v-for="mymarker in rider_markers" :key="mymarker.id" :position="mymarker.position"
+                    :clickable="true" :draggable="false">
                 </GMapMarker>
             </GMapCluster>
         </GMapMap>
@@ -31,24 +22,14 @@
 import { ref, computed, onMounted } from "vue";
 import { useMapStore } from "@/stores/mapStore";
 
-
 const mapStore = useMapStore;
-
-
-
-
 
 const coords = ref({ lat: 1.38, lng: 103.8 });
 
 const rider_markers = ref(null)
 
-const rider_path=ref([
+const rider_path = ref([
 ])
-
-
-
-
-
 const getUserLocation = () => {
     // Check if geolocation is supported by the browser
     const isSupported = "navigator" in window && "geolocation" in navigator;
@@ -60,13 +41,8 @@ const getUserLocation = () => {
         });
     }
 };
-
-
-
 onMounted(() => {
     getUserLocation()
-    
-    
     rider_path.value = mapStore.directions
     rider_markers.value = mapStore.markerarray
 
