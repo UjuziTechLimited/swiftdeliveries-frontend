@@ -56,12 +56,12 @@ onMounted(() => {
                         Dashboard
                     </RouterLink>
                 </li>
-                <li>
+                <!-- <li>
                     <RouterLink :to="{ name: 'Admins' }" class="text-2xl font-bold font-headings">
                         <Building />
                         Admins
                     </RouterLink>
-                </li>
+                </li> -->
                 <li>
                     <RouterLink :to="{ name: 'Organizations' }" class="text-2xl font-bold font-headings">
                         <Building />
