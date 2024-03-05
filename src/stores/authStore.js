@@ -17,33 +17,22 @@ export const useAuthStore = defineStore('auth', {
                 this.authUser = {
                     name: 'Admin',
                     email: 'admin@admin.com',
-                };
+                }
+                console.log(this.authUser)
+                return true;
+
+            }
+            if (email === 'rider@rider.com' && password === 'rider') {
+                this.authUser = {
+                    name: 'Rider',
+                    email: 'rider@rider.com',
+                }
                 console.log(this.authUser)
                 return true;
             }
-            // console.log(this.authUser)
-
-
-            // API call to login
-            // try {
-            //     await axios.get('/sanctum/csrf-cookie');
-            //     await axios.post('/login', {
-            //         email,
-            //         password
-            //     })
-            //     await axios.get('/api/user').then(response => {
-            //         this.authUser = response.data;
-            //         console.log(this.authUser);
-
-            //     })
-            //     return true;
-
-            // } catch (error) {
-            //     console.log(error);
-            // }
-
-
-
+            else {
+                return false;
+            }
         },
 
         async logout() {

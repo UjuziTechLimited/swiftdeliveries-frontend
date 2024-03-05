@@ -18,15 +18,21 @@ const form = ref({
 
 const onLogin = async () => {
     if (await authStore.login(form.value.email, form.value.password)) {
-        router.push('/admin/dashboard');
+
+        if (authStore.authUser.name === 'Admin') {
+            router.push('/admin/dashboard');
+        }
+        if (authStore.authUser.name === 'Rider') {
+            router.push('/rider/dashboard');
+        }
+
     } else {
         console.error('Invalid credentials');
         alert('Invalid credentials');
     }
 };
-
-
 </script>
+
 <template>
     <MainLayout>
         <div class="container min-h-screen mx-auto hero bg-base-200 rounded-xl">

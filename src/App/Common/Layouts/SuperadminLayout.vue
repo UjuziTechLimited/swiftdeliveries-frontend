@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
-import { LayoutDashboard, Truck, Bike, BarChart3, Inbox, Home, Car, Map } from 'lucide-vue-next'
+import { LayoutDashboard, Truck, Building, BarChart3, Inbox, Home, Car, Map } from 'lucide-vue-next'
 import AdminFooter from '@/App/Common/Components/AdminFooter.vue'
 import ThemeChange from '../Components/ThemeChange.vue';
 import ProfileAvatar from '../Components/ProfileAvatar.vue';
@@ -10,9 +10,7 @@ import { themeChange } from 'theme-change';
 onMounted(() => {
     themeChange(false);
 });
-
 </script>
-
 
 <template>
     <div class="drawer lg:drawer-open">
@@ -22,12 +20,11 @@ onMounted(() => {
             <div class="flex justify-between p-2 m-2 lg:justify-end">
                 <label for="my-drawer-2" class="btn btn-sm drawer-button lg:hidden">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7">
                         </path>
                     </svg>
                 </label>
-
-
                 <div class="flex">
                     <ThemeChange />
                     <ProfileAvatar />
@@ -54,40 +51,34 @@ onMounted(() => {
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Dashboard' }" class="text-2xl font-bold font-headings">
+                    <RouterLink :to="{ name: 'SuperAdmin' }" class="text-2xl font-bold font-headings">
                         <LayoutDashboard />
                         Dashboard
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Orders' }" class="text-2xl font-bold font-headings">
-                        <Truck />
-                        Orders
+                    <RouterLink :to="{ name: 'Admins' }" class="text-2xl font-bold font-headings">
+                        <Building />
+                        Admins
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink :to="{ name: 'Riders' }" class="text-2xl font-bold font-headings">
-                        <Bike />
-                        Riders
+                    <RouterLink :to="{ name: 'Organizations' }" class="text-2xl font-bold font-headings">
+                        <Building />
+                        Organizations
                     </RouterLink>
                 </li>
-                <li>
+
+                <!-- <li>
                     <RouterLink :to="{ name: 'Analytics' }" class="text-2xl font-bold font-headings">
                         <BarChart3 />
                         Analytics
                     </RouterLink>
-                </li>
+                </li> -->
                 <li>
                     <RouterLink :to="{ name: 'Messages' }" class="text-2xl font-bold font-headings">
                         <Inbox />
                         Messages
-                    </RouterLink>
-                </li>
-
-                <li>
-                    <RouterLink :to="{ name: 'RidersDashboard' }" class="text-2xl font-bold font-headings">
-                        <Car />
-                        Rider Dashboard
                     </RouterLink>
                 </li>
             </ul>
@@ -95,4 +86,5 @@ onMounted(() => {
     </div>
     <AdminFooter />
 </template>
+
 <style scoped></style>

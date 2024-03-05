@@ -20,7 +20,7 @@ const mapstore = useMapStore();
 
 const createOrder = (order) => {
     ordersStore.addOrder(order);
-};
+}; 0
 
 
 // Set the location based on the place selected

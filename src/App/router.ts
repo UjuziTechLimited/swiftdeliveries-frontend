@@ -5,7 +5,8 @@ import RidersRouter from './Modules/Riders/Router'
 import AuthenticationRouter from './Modules/Authentication/Router'
 import AnalyticsRouter from './Modules/Analytics/Router'
 import MessagesRouter from './Modules/Messages/Router'
-import MapRouter from './Modules/Map/Router'
+import SuperadminRouter from './Modules/Superadmin/Router'
+import OrganizationsRouter from './Modules/Organizations/Router'
 import NotFound from './Common/Views/NotFound.vue'
 
 
@@ -17,7 +18,8 @@ export default [
     ...AuthenticationRouter,
     ...AnalyticsRouter,
     ...MessagesRouter,
-    ...MapRouter,
+    ...SuperadminRouter,
+    ...OrganizationsRouter,
 
     // 404 PAGE
     {
@@ -25,5 +27,9 @@ export default [
         name: 'NotFound',
         component: NotFound,
     },
-    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: NotFound,
+    },
 ]

@@ -1,6 +1,6 @@
 export default [
     {
-        path: '/admin/messages',
+        path: '/super/messages',
         component: () => import('../Views/Messages.vue'),
         name: 'Messages',
 
