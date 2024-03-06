@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
-import { LayoutDashboard, Truck, Building, BarChart3, Inbox, Home, Car, Map } from 'lucide-vue-next'
+import { LayoutDashboard, SquareUserRound, Building, BarChart3, Inbox, Home, Car, Map } from 'lucide-vue-next'
 import AdminFooter from '@/App/Common/Components/AdminFooter.vue'
 import ThemeChange from '../Components/ThemeChange.vue';
 import ProfileAvatar from '../Components/ProfileAvatar.vue';
@@ -56,12 +56,12 @@ onMounted(() => {
                         Dashboard
                     </RouterLink>
                 </li>
-                <!-- <li>
-                    <RouterLink :to="{ name: 'Admins' }" class="text-2xl font-bold font-headings">
-                        <Building />
+                <li>
+                    <RouterLink :to="{ name: 'Admin' }" class="text-2xl font-bold font-headings">
+                        <SquareUserRound />
                         Admins
                     </RouterLink>
-                </li> -->
+                </li>
                 <li>
                     <RouterLink :to="{ name: 'Organizations' }" class="text-2xl font-bold font-headings">
                         <Building />

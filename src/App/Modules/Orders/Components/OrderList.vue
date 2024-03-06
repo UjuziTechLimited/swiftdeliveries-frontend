@@ -1,4 +1,5 @@
 <!-- src/App/Modules/Orders/Components/OrderList.vue -->
+
 <script setup>
 import { computed, ref } from 'vue';
 import { useOrdersStore } from '@/stores/ordersStore';
@@ -68,8 +69,3 @@ const selectedOrder = ref(null);
         </table>
     </div>
 </template>
-
-    
-
-
-

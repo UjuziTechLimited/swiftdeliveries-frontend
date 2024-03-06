@@ -7,6 +7,7 @@ import AnalyticsRouter from './Modules/Analytics/Router'
 import MessagesRouter from './Modules/Messages/Router'
 import SuperadminRouter from './Modules/Superadmin/Router'
 import OrganizationsRouter from './Modules/Organizations/Router'
+import AdminRouter from './Modules/Admin/Router'
 import NotFound from './Common/Views/NotFound.vue'
 
 
@@ -20,6 +21,7 @@ export default [
     ...MessagesRouter,
     ...SuperadminRouter,
     ...OrganizationsRouter,
+    ...AdminRouter,
 
     // 404 PAGE
     {

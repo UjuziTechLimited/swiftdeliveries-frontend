@@ -1,13 +1,14 @@
 <!-- src/App/Modules/Orders/Views/Orders.vue -->
+
 <script setup>
 import { ref } from 'vue';
-import DrawerLayout from '@/App/Common/Layouts/DrawerLayout.vue';
-import OrderList from '../Components/OrderList.vue';
+import SuperadminLayout from '@/App/Common/Layouts/SuperadminLayout.vue';
+import AdminList from '../Components/AdminList.vue';
 
-import { useOrdersStore } from '@/stores/ordersStore';
+import { useAdminStore } from '@/stores/adminStore';
 // import NewOrderForm from '../Components/NewOrderForm.vue';
 
-const ordersStore = useOrdersStore();
+const adminStore = useAdminStore();
 const searchQuery = ref('');
 
 // const createOrder = (order) => {
@@ -16,7 +17,7 @@ const searchQuery = ref('');
 // };
 const clearSearch = () => {
     searchQuery.value = ''; // Clear the search box
-    ordersStore.clearSearchResults(); // Clear the search results
+    adminStore.clearSearchResults(); // Clear the search results
 };
 
 // const editOrder = (order) => {
@@ -27,8 +28,8 @@ const clearSearch = () => {
 </script>
 
 <template>
-    <DrawerLayout>
-        <div class="my-4 text-2xl text-center font-headings">Orders</div>
+    <SuperadminLayout>
+        <div class="my-4 text-2xl text-center font-headings">Administrators</div>
         <div class="container">
             <div class="flex flex-wrap justify-center gap-10 m-2">
                 <!-- <button class="btn" onclick="newOrderForm.showModal()">New Order</button>
@@ -41,13 +42,13 @@ const clearSearch = () => {
                     </div>
                 </dialog> -->
 
-                <input v-model="ordersStore.searchQuery" @input="searchOrders" class="input input-bordered"
-                    placeholder="Search Orders" />
+                <input v-model="adminStore.searchQuery" @input="searchAdmins" class="input input-bordered"
+                    placeholder="Search Admins" />
                 <button class="btn btn-circle btn-error" @click="clearSearch">X</button>
             </div>
             <div>
-                <OrderList :orders="ordersStore.filteredOrders" />
+                <AdminList :admins="adminStore.filteredAdmins" />
             </div>
         </div>
-    </DrawerLayout>
+    </SuperadminLayout>
 </template>

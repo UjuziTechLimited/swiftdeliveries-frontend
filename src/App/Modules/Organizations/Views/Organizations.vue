@@ -1,53 +1,54 @@
-<!-- src/App/Modules/Orders/Views/Orders.vue -->
+<!-- src/App/Modules/Organizations/Views/Organizations.vue -->
+
 <script setup>
 import { ref } from 'vue';
-import DrawerLayout from '@/App/Common/Layouts/DrawerLayout.vue';
-import OrderList from '../Components/OrderList.vue';
+import SuperadminLayout from '@/App/Common/Layouts/SuperadminLayout.vue';
+import OrganizationsList from '../Components/OrganizationsList.vue';
 
-import { useOrdersStore } from '@/stores/ordersStore';
-// import NewOrderForm from '../Components/NewOrderForm.vue';
+import { useOrganizationsStore } from '@/stores/organizationsStore';
+// import NewOrganizationForm from '../Components/NewOrganizationForm.vue';
 
-const ordersStore = useOrdersStore();
+const organizationsStore = useOrganizationsStore();
 const searchQuery = ref('');
 
-// const createOrder = (order) => {
-//     ordersStore.addOrder(order);
+// const createOrganization = (organization) => {
+//     organizationsStore.addOrganization(organization);
 
 // };
 const clearSearch = () => {
     searchQuery.value = ''; // Clear the search box
-    ordersStore.clearSearchResults(); // Clear the search results
+    organizationsStore.clearSearchResults(); // Clear the search results
 };
 
-// const editOrder = (order) => {
-//     ordersStore.selectOrderForEdit(order);
+// const editOrganization = (organization) => {
+//     organizationsStore.selectOrganizationForEdit(organization);
 //     // Show the modal
 //     orderFormModal.showModal();
 // };
 </script>
 
 <template>
-    <DrawerLayout>
-        <div class="my-4 text-2xl text-center font-headings">Orders</div>
+    <SuperadminLayout>
+        <div class="my-4 text-2xl text-center font-headings">Organizations</div>
         <div class="container">
             <div class="flex flex-wrap justify-center gap-10 m-2">
-                <!-- <button class="btn" onclick="newOrderForm.showModal()">New Order</button>
-                <dialog id="newOrderForm" class="modal">
+                <!-- <button class="btn" onclick="newOrganizationForm.showModal()">New Organization</button>
+                <dialog id="newOrganizationForm" class="modal">
                     <div class="modal-box">
                         <form method="dialog">
                             <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
                         </form>
-                        <NewOrderForm @submitForm="createOrder" />
+                        <NewOrganizationForm @submitForm="createOrganization" />
                     </div>
                 </dialog> -->
 
-                <input v-model="ordersStore.searchQuery" @input="searchOrders" class="input input-bordered"
-                    placeholder="Search Orders" />
+                <input v-model="organizationsStore.searchQuery" @input="searchOrganizations"
+                    class="input input-bordered" placeholder="Search Organizations" />
                 <button class="btn btn-circle btn-error" @click="clearSearch">X</button>
             </div>
             <div>
-                <OrderList :orders="ordersStore.filteredOrders" />
+                <OrganizationsList :orders="organizationsStore.filteredOrganizations" />
             </div>
         </div>
-    </DrawerLayout>
+    </SuperadminLayout>
 </template>

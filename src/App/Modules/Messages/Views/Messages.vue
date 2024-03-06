@@ -1,7 +1,8 @@
 <!-- src/App/Modules/Orders/Views/Message.vue -->
+
 <script setup>
 import { ref } from 'vue';
-import DrawerLayout from '@/App/Common/Layouts/DrawerLayout.vue';
+import SuperadminLayout from '@/App/Common/Layouts/SuperadminLayout.vue';
 import MessageList from '../Components/MessageList.vue';
 
 import { useMessagesStore } from '@/stores/messagesStore';
@@ -23,7 +24,7 @@ const clearSearch = () => {
 </script>
 
 <template>
-    <DrawerLayout>
+    <SuperadminLayout>
         <div class="my-4 text-2xl text-center font-headings">Messages</div>
         <div class="container">
             <div class="flex flex-wrap justify-center gap-10">
@@ -45,5 +46,5 @@ const clearSearch = () => {
                 <MessageList :messages="messagesStore.filteredMessage" />
             </div>
         </div>
-    </DrawerLayout>
+    </SuperadminLayout>
 </template>
