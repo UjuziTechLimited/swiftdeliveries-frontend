@@ -36,8 +36,6 @@ const submitForm = (organization) => {
             <input v-model="organization.name" type="text" placeholder="John Doe"
                 class="w-full input input-bordered input-primary" />
         </div>
-
-
         <div>
             <button type="submit" class="btn btn-block btn-primary">Add Organization</button>
         </div>
