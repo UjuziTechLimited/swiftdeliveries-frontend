@@ -1,11 +1,12 @@
 <!-- src/App/Modules/Orders/Components/NewOrderForm.vue -->
+
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useOrdersStore } from '@/stores/ordersStore';
 
 
-const ordersStore = useOrdersStore();
-const editMode = ref(false); // Add this line
+// const ordersStore = useOrdersStore();
+// const editMode = ref(false);
 
 
 const order = ref({
@@ -19,18 +20,11 @@ const order = ref({
 })
 const emit = defineEmits(['submitForm', 'updateOrder']);
 
-
-
-
 const submitForm = (order) => {
     emit('submitForm', order);
     my_modal_3.close();
 }
-
-
-
 </script>
-
 
 <template>
     <div class="text-xl text-center font-headings">

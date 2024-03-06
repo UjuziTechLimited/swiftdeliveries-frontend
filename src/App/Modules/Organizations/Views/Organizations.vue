@@ -6,15 +6,14 @@ import SuperadminLayout from '@/App/Common/Layouts/SuperadminLayout.vue';
 import OrganizationsList from '../Components/OrganizationsList.vue';
 
 import { useOrganizationsStore } from '@/stores/organizationsStore';
-// import NewOrganizationForm from '../Components/NewOrganizationForm.vue';
+import NewOrganizationForm from '../Components/NewOrganizationForm.vue';
 
 const organizationsStore = useOrganizationsStore();
 const searchQuery = ref('');
 
-// const createOrganization = (organization) => {
-//     organizationsStore.addOrganization(organization);
-
-// };
+const createOrganization = (organization) => {
+    organizationsStore.addOrganization(organization);
+};
 const clearSearch = () => {
     searchQuery.value = ''; // Clear the search box
     organizationsStore.clearSearchResults(); // Clear the search results
@@ -32,7 +31,7 @@ const clearSearch = () => {
         <div class="my-4 text-2xl text-center font-headings">Organizations</div>
         <div class="container">
             <div class="flex flex-wrap justify-center gap-10 m-2">
-                <!-- <button class="btn" onclick="newOrganizationForm.showModal()">New Organization</button>
+                <button class="btn" onclick="newOrganizationForm.showModal()">New Organization</button>
                 <dialog id="newOrganizationForm" class="modal">
                     <div class="modal-box">
                         <form method="dialog">
@@ -40,7 +39,7 @@ const clearSearch = () => {
                         </form>
                         <NewOrganizationForm @submitForm="createOrganization" />
                     </div>
-                </dialog> -->
+                </dialog>
 
                 <input v-model="organizationsStore.searchQuery" @input="searchOrganizations"
                     class="input input-bordered" placeholder="Search Organizations" />
