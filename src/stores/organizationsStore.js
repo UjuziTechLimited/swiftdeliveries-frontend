@@ -2,35 +2,17 @@
 import { defineStore } from 'pinia'
 
 export const useOrganizationsStore = defineStore('organizations', {
-
     state: () => ({
-        organizations: [
-            {
-                id: 1,
-                name: "Organization 1",
-
-            },
-            {
-                id: 2,
-                name: "Organization 2",
-
-            },
-            {
-                id: 3,
-                name: "Organization 3",
-
-            }
-
-        ],
+        organizations: [],
         searchQuery: '',
-        selectedOganization: null
-
+        selectedOganization: null,
     }),
     getters: {
         filteredOrganizations() {
-            return this.organizations.filter(organization =>
-                organization.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
-        }
+            return this.organizations.filter((organization) =>
+                organization.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+            )
+        },
     },
     actions: {
         addOrganization(organization) {
@@ -60,11 +42,10 @@ export const useOrganizationsStore = defineStore('organizations', {
             this.searchQuery = ''
         },
         selectOrganizationForDetails(organization) {
-            this.selectedOganizationForDetails = { ...organization };
+            this.selectedOganizationForDetails = { ...organization }
         },
         clearSelectedOrganizationForDetails() {
-            this.selectedOganizationForDetails = null;
+            this.selectedOganizationForDetails = null
         },
-
-    }
+    },
 })

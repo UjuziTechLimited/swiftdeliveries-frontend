@@ -19,10 +19,16 @@ const form = ref({
 const onLogin = async () => {
     if (await authStore.login(form.value.email, form.value.password)) {
 
-        if (authStore.authUser.name === 'Admin') {
+        if (authStore.authUser.role === 'super') {
+            router.push('/super/')
+        }
+        if (authStore.authUser.role === 'admin') {
             router.push('/admin/dashboard');
         }
-        if (authStore.authUser.name === 'Rider') {
+        if (authStore.authUser.role === 'dispatch') {
+            router.push('/admin/dashboard');
+        }
+        if (authStore.authUser.role === 'rider') {
             router.push('/rider/dashboard');
         }
 
@@ -35,15 +41,9 @@ const onLogin = async () => {
 
 <template>
     <MainLayout>
-        <div class="container min-h-screen mx-auto hero bg-base-200 rounded-xl">
-            <div class="flex-col hero-content lg:flex-row-reverse">
-                <div class="text-center lg:text-left">
-                    <h1 class="text-5xl font-bold">Login now!</h1>
-                    <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-                        exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                </div>
-                <div class="w-full max-w-sm shadow-2xl card shrink-0 bg-base-100">
+        <div class="container mx-auto bg-base-200 rounded-xl">
+            <div class="">
+                <div class="shadow-2xl card bg-base-100">
                     <form class="card-body" @submit.prevent="onLogin">
                         <div class="form-control">
                             <label class="label">

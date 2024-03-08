@@ -1,76 +1,90 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+
+import { useUsersStore } from './usersStore'
+
 // import axios from 'axios';
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
-        authUser: null,
+        user: null,
+        token: null,
     }),
     getters: {
-        user: (state) => state.authUser,
+        isAuthenticated: (state) => !!state.user && !!state.token,
+        role: (state) => state.user?.role,
     },
 
     actions: {
+        // async login(credentials) {
+        //     try {
+        //         const response = await axios.post('/api/auth/login', credentials)
+        //         this.user = response.data.user
+        //         this.token = response.data.token
+        //     } catch (error) {
+        //         console.error('Login failed:', error)
+        //         throw error
+        //     }
+        // },
         async login(email, password) {
-            // console.log(email, password)
-            // Dummy Login Logic
-            if (email === 'admin@admin.com' && password === 'admin') {
-                this.authUser = {
-                    name: 'Admin',
-                    email: 'admin@admin.com',
-                }
-                console.log(this.authUser)
-                return true;
 
-            }
-            if (email === 'rider@rider.com' && password === 'rider') {
-                this.authUser = {
-                    name: 'Rider',
-                    email: 'rider@rider.com',
-                }
+            const usersStore = useUsersStore();
+
+            if (usersStore.users.some(user => user.email === email)) {
+                this.authUser = usersStore.users.find(user => user.email === email)
                 console.log(this.authUser)
                 return true;
             }
-            else {
-                return false;
+
+        },
+
+        async register(userData) {
+            try {
+                const response = await axios.post('/api/auth/register', userData)
+                this.user = response.data.user
+                this.token = response.data.token
+            } catch (error) {
+                console.error('Registration failed:', error)
+                throw error
             }
         },
 
+        // Dummy Logout Logic
         async logout() {
             console.log('Logging out...');
 
-            // Dummy Logout Logic
+
             this.authUser = null;
             return true;
 
-            // API call to logout
+        },
 
-            // try {
-            //     await axios.get('/sanctum/csrf-cookie');
-            //     await axios.post('/logout')
+        // async logout() {
+        //         try {
+        //             await axios.post('/api/auth/logout', null, {
+        //                 headers: {
+        //                     Authorization: `Bearer ${this.token}`,
+        //                 },
+        //             })
+        //             this.user = null
+        //             this.token = null
+        //         } catch (error) {
+        //             console.error('Logout failed:', error)
+        //         }
+        //     },
 
-            //     // Clear cookies
-            //     document.cookie.split(';').forEach(function (c) {
-            //         const name = c.split('=')[0].trim();
-            //         if (name === 'laravel_session' || name === 'XSRF-TOKEN') {
-            //             document.cookie = `${name}=;expires=${new Date().toUTCString()};path=/`;
-            //         }
-            //     });
-
-
-            //     return true
-
-            // } catch (error) {
-            //     console.log(error);
-            // }
-
-
-            // Clear user data, token, and token expiry
-            // this.authUser = null;
-            // this.token = null;
-            // this.tokenExpiry = null;
-
-            // console.log(this.authUser)
+        async fetchUser() {
+            try {
+                const response = await axios.get('/api/auth/user', {
+                    headers: {
+                        Authorization: `Bearer ${this.token}`,
+                    },
+                })
+                this.user = response.data.user
+            } catch (error) {
+                console.error('Failed to fetch user:', error)
+                this.user = null
+                this.token = null
+            }
         },
     },
-});
-
+})

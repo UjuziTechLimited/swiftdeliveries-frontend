@@ -1,22 +1,23 @@
 //src/stores/adminStore.js
 import { defineStore } from 'pinia'
+import { useUsersStore } from './usersStore';
 
 export const useAdminStore = defineStore('admins', {
 
     state: () => ({
         admins: [
-            {
-                id: 1,
-                name: 'Admin 1',
-                email: 'admin1@admin.com',
-                organization: 'org 1'
-            },
-            {
-                id: 2,
-                name: 'Admin 2',
-                email: 'admin2@admin.com',
-                organization: 'org'
-            }
+            // {
+            //     id: 1,
+            //     name: 'Admin 1',
+            //     email: 'admin1@admin.com',
+            //     organization: 'org 1'
+            // },
+            // {
+            //     id: 2,
+            //     name: 'Admin 2',
+            //     email: 'admin2@admin.com',
+            //     organization: 'org'
+            // }
 
         ],
         searchQuery: '',
@@ -24,6 +25,17 @@ export const useAdminStore = defineStore('admins', {
 
     }),
     getters: {
+        // getAllAdmins() {
+        //     const usersStore = useUsersStore();
+        //     const admins = usersStore.users.filter(user => user.role === 'admin')
+        //     this.admins.push(...admins)
+        //     // return usersStore.users.filter(user => user.role === 'admin')
+        // },
+
+        //get all admins from the users store and add them to the admins array
+
+
+
         filteredAdmins() {
             return this.admins.filter(admin =>
                 admin.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
