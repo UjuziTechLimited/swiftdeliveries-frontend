@@ -34,15 +34,15 @@ onMounted(() => {
             <div class="navbar-end">
                 <ul class="menu menu-horizontal">
                     <li>
-                        <RouterLink :to="{ name: 'Dashboard' }" class="text-xl font-bold font-headings">Login
+                        <RouterLink :to="{ name: 'Login' }" class="text-xl font-bold font-headings">Login
                         </RouterLink>
                     </li>
                 </ul>
 
                 <label class="p-2 rounded-full swap swap-rotate hover:bg-base-300">
                     <!-- this hidden checkbox controls the state -->
-                    <input data-toggle-theme="dark,light" data-act-class="light" type="checkbox" class="theme-controller"
-                        value="dark" />
+                    <input data-toggle-theme="dark,light" data-act-class="light" type="checkbox"
+                        class="theme-controller" value="dark" />
                     <!-- sun icon -->
                     <svg class="w-8 h-8 fill-current swap-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path

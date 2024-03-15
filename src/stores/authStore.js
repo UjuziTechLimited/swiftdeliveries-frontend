@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 import { useUsersStore } from './usersStore'
 
-// import axios from 'axios';
+import axios from 'axios';
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
@@ -15,27 +15,34 @@ export const useAuthStore = defineStore('auth', {
     },
 
     actions: {
-        // async login(credentials) {
-        //     try {
-        //         const response = await axios.post('/api/auth/login', credentials)
-        //         this.user = response.data.user
-        //         this.token = response.data.token
-        //     } catch (error) {
-        //         console.error('Login failed:', error)
-        //         throw error
-        //     }
-        // },
         async login(email, password) {
+            try {
+                const response = await axios.get('/auth/login',
+                    {
+                        email: email,
+                        password: password
+                    })
+                this.user = response.data.user
+                this.token = response.data.token
 
-            const usersStore = useUsersStore();
-
-            if (usersStore.users.some(user => user.email === email)) {
-                this.authUser = usersStore.users.find(user => user.email === email)
-                console.log(this.authUser)
-                return true;
+                console.log('Login successful:', response.data.user, response.data.token)
+            } catch (error) {
+                console.error('Login failed:', error)
+                throw error
             }
-
         },
+        // async login(email, password) {
+
+        //     const usersStore = useUsersStore();
+
+        //     if (usersStore.users.some(user => user.email === email)) {
+        //         this.authUser = usersStore.users.find(user => user.email === email)
+        //         console.log(this.authUser)
+        //         return true;
+        //     }
+
+        // },
+
 
         async register(userData) {
             try {
