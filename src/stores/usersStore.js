@@ -2,7 +2,48 @@ import { defineStore } from 'pinia'
 
 export const useUsersStore = defineStore('users', {
     state: () => ({
-        users: [],
+        users: [
+            {
+                id: 0,
+                firstName: 'John',
+                lastName: 'Doe',
+                role: 'super',
+                email: 'john@super.com',
+                accountStatus: 'active',
+                phoneNumber: '2547xxxxxxxx',
+                password: '',
+            },
+            {
+                id: 1,
+                firstName: 'Jane',
+                lastName: 'Doe',
+                role: 'admin',
+                email: 'jane@admin.com',
+                accountStatus: 'active',
+                phoneNumber: '2547xxxxxxxx',
+                password: '',
+            },
+            {
+                id: 2,
+                firstName: 'James',
+                lastName: 'Doe',
+                role: 'dispatch',
+                email: 'james@dispatch.com',
+                accountStatus: 'active',
+                phoneNumber: '2547xxxxxxxx',
+                password: '',
+            },
+            {
+                id: 3,
+                firstName: 'Jill',
+                lastName: 'Doe',
+                role: 'rider',
+                email: 'jill@rider.com',
+                accountStatus: 'active',
+                phoneNumber: '2547xxxxxxxx',
+                password: '',
+            },
+        ],
     }),
 
     getters: {

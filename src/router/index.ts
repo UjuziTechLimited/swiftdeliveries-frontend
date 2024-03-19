@@ -12,10 +12,16 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
-  if (to.path.startsWith('/admin/') && !authStore.authUser) {
+  // if (to.path.startsWith('/admin/') || to.path.startsWith('/super/') || to.path.startsWith('/dispatch/') || to.path.startsWith('/rider/') && !authStore.authUser) {
+  if (!authStore.authUser && to.name !== 'Login' && to.name !== 'Homepage') {
     next({ name: 'Login' });
   } else {
     next();
   }
+
+  // if(authStore.authUser && (to.name === 'Login' || to.name === 'Homepage')) {
+  //   next({ name: 'Dashboard' });
+  // }
+
 })
 export default router
